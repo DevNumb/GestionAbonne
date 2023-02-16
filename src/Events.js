@@ -52,7 +52,7 @@ console.warn("result",data1);
         <tr>
           <th>id</th>
           <th>Descirption</th>
-          <th>Image</th>
+          <th>image</th>
           <th style={{width:100}}>Formlaire</th>
         </tr>
       </thead>
