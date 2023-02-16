@@ -53,6 +53,7 @@ console.warn("result",data1);
           <th>id</th>
           <th>Descirption</th>
           <th>Image</th>
+          <th style={{width:100}}>Formlaire</th>
         </tr>
       </thead>
       <tbody>
@@ -60,7 +61,8 @@ console.warn("result",data1);
   <tr key={item.id_event}>
     <td>{item.id_event}</td>
     <td>{item.nom_event}</td>
-    <td><img src={"http://localhost:8000/" + item.Img} style={{width:100}}alt="#"></img></td>
+    <td ><img src={"http://localhost:8000/" + item.Img} style={{width:100}}alt="#"></img> </td>
+    <td><Button class="primary">Telechargement</Button></td>
   </tr>
 ))}
       </tbody>
