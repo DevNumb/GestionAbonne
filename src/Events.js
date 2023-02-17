@@ -40,7 +40,7 @@ console.warn("result",data1);
               padding: 10,
               marginBottom: 20,
             }} onChange={(e)=>setNom_event(e.target.value)}></input>
-            <input type="file" className="form-control" placeholder="file" style={{marginBottom: 20}} onChange={(e)=>setFile(e.target.files[0])}></input> 
+            <input type="file" name ="file" className="form-control" placeholder="file" style={{marginBottom: 20}} onChange={(e)=>setFile(e.target.files[0])}></input> 
      <Button variant="primary" type="submit" style={{  flex: 0,width:"80px",
               marginBottom: 10}} onClick={addEvents}>
         Submit
@@ -52,7 +52,6 @@ console.warn("result",data1);
         <tr>
           <th>id</th>
           <th>Descirption</th>
-          <th>image</th>
           <th style={{width:100}}>Formlaire</th>
         </tr>
       </thead>
@@ -61,8 +60,7 @@ console.warn("result",data1);
   <tr key={item.id_event}>
     <td>{item.id_event}</td>
     <td>{item.nom_event}</td>
-    <td ><img src={"http://localhost:8000/" + item.Img} style={{width:100}}alt="#"></img> </td>
-    <td><Button class="primary">Telechargement</Button></td>
+    <td><a href ={"http://localhost:8000/" + item.Img}  download={item.Img}><Button class="primary">Telechargement</Button> </a></td>
   </tr>
 ))}
       </tbody>
