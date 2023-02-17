@@ -6,10 +6,10 @@ function AddUser(){
 
 
 
- 
-    const handleRefresh = () => {
-      window.location.reload();
-    };
+  const handleClick = () => {
+    window.location.reload();
+  };
+  
 
 
  
@@ -24,6 +24,7 @@ function AddUser(){
 fetchData();
 
 },[])
+console.warn(data);
 const handleButtonClick = id => {
   async function edit(){
     let item = {id}
@@ -37,7 +38,6 @@ const handleButtonClick = id => {
   });
 
   result1 = await result1.json();
-  console.warn (result1);
   }
   edit();
 };
@@ -56,29 +56,54 @@ const handleButtonClick1 = id => {
   });
 
   result1 = await result1.json();
-  console.warn (result1);
   }
   edit();
 };
 
 
-const handleButtonClick2 = id => {
-  async function edit(){
-    let item ={id}
-    let result1 = await fetch ("http://localhost:8000/api/del" ,{
-      method:'POST',
-      body:JSON.stringify(item),
-      headers:{
-        "Content-Type":'application/json',
-        "Accept" : 'application/json'
-      }
-  });
-
-  }
-  edit();
-
-};
+const handleButtonClick2 = data => {
   
+  async function deleteItem() {
+    let item = {id: data.id};
+    let result = await fetch("http://localhost:8000/api/del", {
+      method: 'POST',
+      body: JSON.stringify(item),
+      headers: {
+        "Content-Type": 'application/json',
+        "Accept": 'application/json'
+      }
+    });
+    console.log ("delete finished");
+  }
+  
+
+  async function uploadUser() {
+    let items = {id:data.id,firstname:data.firstname,lastname:data.lastname,username:data.username,gender:data.gender,email:data.email,options:data.options};
+    console.warn(items);
+    let result = await fetch("http://localhost:8000/api/uploadUser", {
+      method: 'POST',
+      body: JSON.stringify(items),
+      headers: {
+        "Content-Type": 'application/json',
+        "Accept": 'application/json'
+      }
+    });
+    result = await result.json();
+    console.warn (result);
+  }
+ deleteItem();
+  console.log ("call deleted");
+  uploadUser();
+  console.warn ("finish uploaded");
+  
+  let user = JSON.parse(localStorage.getItem('user-info'));
+  if (user.username == data.username){
+    localStorage.clear();
+  }
+  
+
+};
+
 
     return (
     
@@ -102,19 +127,19 @@ const handleButtonClick2 = id => {
                 <div style={{display:"flex" , flexDirection:Row,justifyContent:"space-between"}}>
                 <Button onClick={() => handleButtonClick(item.id)} variant="primary" style={{margin:5}}>Admin</Button>
                 <Button onClick={() => handleButtonClick1(item.id)} variant="secondary" style={{margin:5}}>Utilisateur</Button>
-                <Button variant="danger" onClick={() => handleButtonClick2(item.id)} onMouseLeave={() => handleRefresh()} style={{margin:5}}> Supprimer</Button>
+                <Button variant="danger" onClick={()=> handleButtonClick2(item) }  onMouseLeave={handleClick}style={{margin:5}}> Supprimer </Button>
               </div>
               </tr>
 
               )
-}
+              }
             </tbody>
           </Table>
           </div>
         );
-      }
       
-          
+            }   
+    
         
         
       

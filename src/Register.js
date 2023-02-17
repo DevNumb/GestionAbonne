@@ -1,6 +1,6 @@
 import React , {useState,useEffect } from 'react';
 import {useNavigate} from 'react-router-dom';
-import Header from "./Header";
+
 function Register(){
 const [firstname , setFirstname] = useState ("");
 const [lastname,setLastname] =useState("");
@@ -16,22 +16,25 @@ if (localStorage.getItem('user-info'))
   navigate("/GestionUtilisateur");
 }
 },[])
-async function signUp (){
+async function signUp() {
   setOptions("");
-let item ={firstname,lastname,gender,username,email,password,options};
-  console.warn(item);
-  let result = await fetch ("http://localhost:8000/api/register" ,{
-    method:'POST',
-    body:JSON.stringify(item),
-    headers:{
-      "Content-Type":'application/json',
-      "Accept" : 'application/json'
-    }
-});
-result = await result.json();
-localStorage.setItem('user-info', JSON.stringify(item));
-navigate("/GestionUtilisateur")
+  
 
+  const item = {
+   firstname,lastname,gender,username,email,password,options
+  };
+  const result = await fetch("http://localhost:8000/api/register", {
+    method: "POST",
+    body: JSON.stringify(item),
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+    },
+  });
+
+  const response = await result.json(); 
+  localStorage.setItem("user-info", JSON.stringify(response));
+  navigate("/GestionUtilisateur");
 }
 
     return (

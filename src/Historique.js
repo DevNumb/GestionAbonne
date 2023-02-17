@@ -48,7 +48,7 @@ return (
       {data.map((item) => <tr>
         <td>{item.id}</td>
         <td>{item.username}</td>
-        <td> {item.email}</td>
+        <td> {item.options}</td>
       </tr>
 
       )}
