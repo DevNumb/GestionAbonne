@@ -10,12 +10,7 @@ const [email,setEmail] =useState("");
 const [password,setPassword] =useState("");
 const [options,setOptions] =useState("");
 const navigate = useNavigate();
-useEffect(()=>{
-if (localStorage.getItem('user-info'))
-{
-  navigate("/GestionUtilisateur");
-}
-},[])
+
 async function signUp() {
   setOptions("");
   
@@ -32,9 +27,9 @@ async function signUp() {
     },
   });
 
-  const response = await result.json(); 
-  localStorage.setItem("user-info", JSON.stringify(response));
-  navigate("/GestionUtilisateur");
+  const response = await result.json();
+  alert ("attent le energisterment");
+ 
 }
 
     return (

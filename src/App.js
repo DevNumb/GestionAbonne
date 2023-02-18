@@ -11,15 +11,19 @@ import Protected from './Protected';
 import Historique from './Historique';
 import telechargmentpdf from './telechargmentpdf';
 import Conventions from './conventions';
+import AffichageEvent from './AffichageEvent';
+import AffichageConvention from './AffichageConvention';
 function App() {
   return (
     <BrowserRouter>
     <>
-    <Header />
+    <Header />  
       
     <Routes>
+   
           <Route path="/Login" element={<Login/>} />
           <Route path="/Register" element={<Register/>} />
+          
           <Route path="/GestionUtilisateur" element={
             <>
           <Protected Cmp={AddUser}/>
@@ -51,6 +55,21 @@ function App() {
                 <>
                 <Protected Cmp ={Conventions}/>
                 {/*<Conventions/>*/}
+                </>
+             }/>
+
+<Route path="/AffichageEvent" element={
+                <>
+                <Protected Cmp ={AffichageEvent}/>
+                {/*<AffichageEvent/>*/}
+                </>
+             }/>
+
+             
+<Route path="/AffichageConvention" element={
+                <>
+                <Protected Cmp ={Conventions}/>
+                {/*<AffichageConvention/>*/}
                 </>
              }/>
       

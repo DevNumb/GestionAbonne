@@ -5,12 +5,7 @@ function Login(){
   const [email , setEmail]  = useState();
   const [password , setPassword]  = useState();
   const navigate = useNavigate();
-  useEffect(()=>{
-    if (localStorage.getItem('user-info'))
-    {
-      navigate("/GestionUtilisateur");
-    }
-    },[])
+ 
     async function login(){
       let item ={email,password};
       let result = await fetch ("http://localhost:8000/api/login" ,{
@@ -24,7 +19,14 @@ function Login(){
     console.warn(result);
     result = await result.json();
 localStorage.setItem('user-info', JSON.stringify(result));
-navigate("/GestionUtilisateur");
+if (result.options == "Admin"){
+  navigate("/GestionUtilisateur");
+  } else if (result.options =="User"){
+    navigate ("/AffichageEvent");
+  }else {
+    alert ("attent le energisterment");
+    localStorage.clear();
+  }
     }
 
    
