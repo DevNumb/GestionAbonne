@@ -60,7 +60,7 @@ console.warn("result",data1);
   <tr key={item.id_event}>
     <td>{item.id_event}</td>
     <td>{item.nom_event}</td>
-    <td><a href ={"http://localhost:8000/" + item.Img}  download={item.Img}><Button class="primary">Telechargement</Button> </a></td>
+    <td><a href ={"http://localhost:8000/" + item.Img}  download={item.Img} ><Button class="primary">Telechargement</Button> </a></td>
   </tr>
 ))}
       </tbody>

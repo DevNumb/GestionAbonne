@@ -52,12 +52,19 @@ let user = JSON.parse(localStorage.getItem('user-info'));
   )
   : (
     <>
-      <Link to="/Login" style={{textDecoration: "none", color: "white", padding: "8px"}}>
+     <Link to="/AboutUs" style={{textDecoration: "none", color: "white", padding: "15px" ,marginRight:"15px"}}>
+        AboutUs
+      </Link>
+      <Link to="/ContactUs" style={{textDecoration: "none", color: "white", padding: "15px", marginRight:"15px"}}>
+       ContactUs
+      </Link>
+      <Link to="/Login" style={{textDecoration: "none", color: "white", padding: "8px" , marginRight:"15px"}}>
         <Button style={{border: "1 solid black", backgroundColor: "#03045e"}}>Login</Button>
       </Link>
-      <Link to="/Register" style={{textDecoration: "none", color: "white", padding: "8px"}}>
+      <Link to="/Register" style={{textDecoration: "none", color: "white", padding: "8px", marginRight:"15px"}}>
         <Button style={{border: "1 solid black", backgroundColor: "#03045e"}}>SignUp</Button>
       </Link>
+     
     </>
   )
 }

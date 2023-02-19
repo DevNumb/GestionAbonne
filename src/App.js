@@ -13,9 +13,13 @@ import telechargmentpdf from './telechargmentpdf';
 import Conventions from './conventions';
 import AffichageEvent from './AffichageEvent';
 import AffichageConvention from './AffichageConvention';
+import AboutUs from './AboutUs';
+import ContactUs from './ContactUs';
 function App() {
   return (
+  
     <BrowserRouter>
+  
     <>
     <Header />  
       
@@ -23,6 +27,8 @@ function App() {
    
           <Route path="/Login" element={<Login/>} />
           <Route path="/Register" element={<Register/>} />
+          <Route path="/AboutUs" element={<AboutUs/>} />
+          <Route path="/AboutUs" element={<ContactUs/>} />
           
           <Route path="/GestionUtilisateur" element={
             <>
@@ -72,11 +78,14 @@ function App() {
                 {/*<AffichageConvention/>*/}
                 </>
              }/>
+
+
+
       
       </Routes>
-     
-    
+ 
     </>
+    
     </BrowserRouter>
   );
 }
