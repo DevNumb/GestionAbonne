@@ -20,7 +20,7 @@ function AddUser(){
 fetchData();
 
 },[])
-console.warn(data);
+
 const handleButtonClick = id => {
   async function edit(){
     let item = {id}
@@ -56,20 +56,7 @@ const handleButtonClick1 = id => {
   edit();
 };
 
-async function uploadUser() {
-  let items = {id:data.id,firstname:data.firstname,lastname:data.lastname,username:data.username,gender:data.gender,email:data.email,options:data.options};
-  console.warn(items);
-  let result = await fetch("http://localhost:8000/api/uploadUser", {
-    method: 'POST',
-    body: JSON.stringify(items),
-    headers: {
-      "Content-Type": 'application/json',
-      "Accept": 'application/json'
-    }
-  });
-  result = await result.json();
-  console.warn (result);
-}
+
 
 function handleButtonClick2 (data) {
   
@@ -89,7 +76,6 @@ function handleButtonClick2 (data) {
 
   async function uploadUser() {
     let items = {id:data.id,firstname:data.firstname,lastname:data.lastname,username:data.username,gender:data.gender,email:data.email,options:data.options};
-    console.warn(items);
     let result = await fetch("http://localhost:8000/api/uploadUser", {
       method: 'POST',
       body: JSON.stringify(items),
@@ -99,16 +85,15 @@ function handleButtonClick2 (data) {
       }
     });
     result = await result.json();
-    console.warn (result);
+    
   }
  deleteItem();
   uploadUser();
-   
+  fetchData(); 
   let user = JSON.parse(localStorage.getItem('user-info'));
   if (user.username == data.username){
     localStorage.clear();
   }
-  fetchData(); 
 
 };
 

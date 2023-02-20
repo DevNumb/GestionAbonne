@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+
 import './App.css';
 import {Button} from 'react-bootstrap';
 import Header  from './Header';
@@ -15,11 +15,17 @@ import AffichageEvent from './AffichageEvent';
 import AffichageConvention from './AffichageConvention';
 import AboutUs from './AboutUs';
 import ContactUs from './ContactUs';
+import {Helmet} from "react-helmet";
 function App() {
   return (
   
     <BrowserRouter>
-  
+    <Helmet>
+                <meta charSet="utf-8" />
+                <title>GestionAbonne</title>
+                <link rel="canonical" href="http://mysite.com/example" />
+                <meta name="description" content="test" />
+            </Helmet>
     <>
     <Header />  
       

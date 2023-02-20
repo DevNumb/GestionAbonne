@@ -3,6 +3,19 @@ import {useState,useEffect} from 'react';
 
 
 function Events(){
+
+  async function fetchData1(){
+    let result = await fetch ("http://localhost:8000/api/listEvent");
+   result = await result.json();
+  setData1(result);
+  } 
+
+  const [data1 , setData1] = useState([]);
+  useEffect ( ()=> {
+ 
+fetchData1();
+
+},[])
 const [nom_event,setNom_event] = useState();
 const [file,setFile] = useState();
 
@@ -15,11 +28,9 @@ let result = await fetch ("http://localhost:8000/api/delEvent/" + id , {
 
 
 result = await result.json();
-console.warn(result);
 fetchData1();
 }
 async function addEvents(){
-console.warn(nom_event,file);
 const formData = new FormData();
 formData.append('nom_event',nom_event);
 formData.append('file',file);
@@ -31,21 +42,11 @@ alert("Enregistrer");
 fetchData1();
 }
 
-  const [data1 , setData1] = useState([]);
-  useEffect ( ()=> {
  
-fetchData1();
-
-},[])
-console.warn("result",data1);
 
 
 
-async function fetchData1(){
-  let result = await fetch ("http://localhost:8000/api/listEvent");
- result = await result.json();
-setData1(result);
-} 
+
     return (
         
     <div style={{ display: "flex", flexDirection: "column",  backgroundColor: "white", boxShadow: "2px 2px 10px lightgray", padding: 50,margin:50,borderRadius:"6px"}}>
