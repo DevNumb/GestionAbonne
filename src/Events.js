@@ -28,6 +28,7 @@ method: 'post',
 body: formData
 });
 alert("Enregistrer");
+fetchData1();
 }
 
   const [data1 , setData1] = useState([]);

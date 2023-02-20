@@ -74,7 +74,7 @@ function App() {
              
 <Route path="/AffichageConvention" element={
                 <>
-                <Protected Cmp ={Conventions}/>
+                <Protected Cmp ={AffichageConvention}/>
                 {/*<AffichageConvention/>*/}
                 </>
              }/>
