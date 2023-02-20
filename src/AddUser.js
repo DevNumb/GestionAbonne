@@ -6,21 +6,17 @@ function AddUser(){
 
 
 
-  const handleClick = () => {
-    window.location.reload();
-  };
-  
-
-
- 
-  const [data , setData] = useState([]);
-  useEffect ( ()=> {
   async function fetchData(){
     let result = await fetch ("http://localhost:8000/api/list");
    result = await result.json();
   setData(result);
 
 } 
+
+ 
+  const [data , setData] = useState([]);
+  useEffect ( ()=> {
+
 fetchData();
 
 },[])
@@ -60,8 +56,22 @@ const handleButtonClick1 = id => {
   edit();
 };
 
+async function uploadUser() {
+  let items = {id:data.id,firstname:data.firstname,lastname:data.lastname,username:data.username,gender:data.gender,email:data.email,options:data.options};
+  console.warn(items);
+  let result = await fetch("http://localhost:8000/api/uploadUser", {
+    method: 'POST',
+    body: JSON.stringify(items),
+    headers: {
+      "Content-Type": 'application/json',
+      "Accept": 'application/json'
+    }
+  });
+  result = await result.json();
+  console.warn (result);
+}
 
-const handleButtonClick2 = data => {
+function handleButtonClick2 (data) {
   
   async function deleteItem() {
     let item = {id: data.id};
@@ -92,15 +102,13 @@ const handleButtonClick2 = data => {
     console.warn (result);
   }
  deleteItem();
-  console.log ("call deleted");
   uploadUser();
-  console.warn ("finish uploaded");
-  
+   
   let user = JSON.parse(localStorage.getItem('user-info'));
   if (user.username == data.username){
     localStorage.clear();
   }
-  
+  fetchData(); 
 
 };
 

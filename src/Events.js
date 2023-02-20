@@ -5,6 +5,19 @@ import {useState,useEffect} from 'react';
 function Events(){
 const [nom_event,setNom_event] = useState();
 const [file,setFile] = useState();
+
+async function delEvents(id){
+
+let result = await fetch ("http://localhost:8000/api/delEvent/" + id , {
+   method:"DELETE"
+
+});
+
+
+result = await result.json();
+console.warn(result);
+fetchData1();
+}
 async function addEvents(){
 console.warn(nom_event,file);
 const formData = new FormData();
@@ -19,15 +32,19 @@ alert("Enregistrer");
 
   const [data1 , setData1] = useState([]);
   useEffect ( ()=> {
-  async function fetchData1(){
-    let result = await fetch ("http://localhost:8000/api/listEvent");
-   result = await result.json();
-  setData1(result);
-} 
+ 
 fetchData1();
 
 },[])
 console.warn("result",data1);
+
+
+
+async function fetchData1(){
+  let result = await fetch ("http://localhost:8000/api/listEvent");
+ result = await result.json();
+setData1(result);
+} 
     return (
         
     <div style={{ display: "flex", flexDirection: "column",  backgroundColor: "white", boxShadow: "2px 2px 10px lightgray", padding: 50,margin:50,borderRadius:"6px"}}>
@@ -60,7 +77,11 @@ console.warn("result",data1);
   <tr key={item.id_event}>
     <td>{item.id_event}</td>
     <td>{item.nom_event}</td>
-    <td><a href ={"http://localhost:8000/" + item.Img}  download={item.Img} ><Button class="primary">Telechargement</Button> </a></td>
+    <td style={{display:"flex" , flexDirection:"row",justifyContent:"space-between"}}>
+      <a href ={"http://localhost:8000/" + item.Img}  download={item.Img} >
+        <Button class="primary" style={{marginRight:"5px"}}  >Telechargement</Button> </a> 
+        <Button variant="danger" style={{marginRight:"5px"}}  onClick={() => delEvents(item.id_event)}>Supprimer</Button>
+        </td>
   </tr>
 ))}
       </tbody>
