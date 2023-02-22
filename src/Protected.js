@@ -11,6 +11,7 @@ function Protected (props){
       },[])
 return (
 <div>
+  
 <Cmp/>
 </div>
 )

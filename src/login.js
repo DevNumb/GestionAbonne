@@ -1,11 +1,16 @@
-import React , {useState,useEffect } from 'react';
+import React , {useState,useLayoutEffect} from 'react';
 import {useNavigate} from 'react-router-dom';
 
 function Login(){
   const [email , setEmail]  = useState();
   const [password , setPassword]  = useState();
   const navigate = useNavigate();
- 
+  useLayoutEffect(() => {
+    const userInfo = localStorage.getItem('user-info');
+    if (userInfo) {
+      navigate('/');
+    }
+  }, [navigate]);
     async function login(){
       let item ={email,password};
       let result = await fetch ("http://localhost:8000/api/login" ,{
@@ -32,8 +37,16 @@ if (result.options == "Admin"){
    
     return (
 
-        <div style={{ display: "flex", height: "100vh", alignItems: "center", justifyContent: "center" , backgroundColor:"#F0F8FF"}}>
-        <div style={{ display: "flex", flexDirection: "column", alignItems: "center", backgroundColor: "white", boxShadow: "2px 2px 10px lightgray", padding: 50 }}>
+      <div style={{
+        display: "flex",
+        minHeight: "100vh",
+        alignItems: "center",
+        justifyContent: "center",
+        backgroundColor: "#F0F8FF",
+        padding: "2rem",
+        boxSizing: "border-box"
+      }}>
+        <div style={{ display: "flex", flexDirection: "column", alignItems: "center", backgroundColor: "white", boxShadow: "2px 2px 10px lightgray", padding: 30 }}>
         <h1>Login Page</h1><br></br>
           <input
             style={{

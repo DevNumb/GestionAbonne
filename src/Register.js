@@ -1,4 +1,4 @@
-import React , {useState,useEffect } from 'react';
+import React , {useState,useLayoutEffect } from 'react';
 import {useNavigate} from 'react-router-dom';
 
 function Register(){
@@ -10,10 +10,15 @@ const [email,setEmail] =useState("");
 const [password,setPassword] =useState("");
 const [options,setOptions] =useState("");
 const navigate = useNavigate();
-
+useLayoutEffect(() => {
+  const userInfo = localStorage.getItem('user-info');
+  if (userInfo) {
+    navigate('/');
+  }
+}, [navigate]);
 async function signUp() {
   setOptions("");
-  
+
 
   const item = {
    firstname,lastname,gender,username,email,password,options

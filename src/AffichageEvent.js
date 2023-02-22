@@ -16,7 +16,7 @@ function AffichageEvent(){
 fetchData1();
 
 },[])
-console.warn("result",data1);
+
     return (
         
   
