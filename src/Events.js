@@ -71,7 +71,8 @@ fetchData1();
         <tr>
           <th>id</th>
           <th>Descirption</th>
-          <th style={{width:100}}>Formlaire</th>
+          <th >Formlaire</th>
+          <th style={{width:100}}>options</th>
         </tr>
       </thead>
       <tbody>
@@ -82,7 +83,11 @@ fetchData1();
     <td style={{display:"flex" , flexDirection:"row",justifyContent:"space-between"}}>
       <a href ={"http://localhost:8000/" + item.Img}  download={item.Img} >
         <Button class="primary" style={{marginRight:"5px"}}  >Telechargement</Button> </a> 
-        <Button variant="danger" style={{marginRight:"5px"}}  onClick={() => delEvents(item.id_event)}>Supprimer</Button>
+       
+        </td>
+        <td>
+        <Button variant="danger"   onClick={() => delEvents(item.id_event)}>Supprimer</Button>   
+
         </td>
   </tr>
 ))}
