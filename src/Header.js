@@ -6,15 +6,50 @@ import {BsFacebook} from 'react-icons/bs';
 import Media from 'react-media';
 import {IoNotifications} from 'react-icons/io5';
 import {GrStatusGoodSmall} from 'react-icons/gr';
+import {useState,useEffect} from 'react';
 
 function Header(){
   const navigate = useNavigate();
+  const [showComponent, setShowComponent] = useState(true);
+
+  const [data, setData] = useState([]);
+/*
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await fetch('http://localhost:8000/api/check');
+      const newData = await response.json();
+      setData(newData);
+    };
+
+    const intervalId = setInterval(() => {
+      fetchData();
+    }, 5000);
+
+    return () => clearInterval(intervalId);
+  }, []);
+
+  function checkAddedData (){
+    if (data.length){
+       setShowComponent(true);
+       setData(null);
+    }
+
+
+  }
+*/
+
+  const handleClick = () => {               
+    setShowComponent(false)
+  
+  };
   function logOut (){
 
     localStorage.clear();
     navigate('/register');
     
     }
+ 
+    console.warn ("result",data);
 let user = JSON.parse(localStorage.getItem('user-info'));
     return (
         <Navbar bg="primary" variant="dark" expand="lg">
@@ -24,7 +59,7 @@ let user = JSON.parse(localStorage.getItem('user-info'));
   localStorage.getItem('user-info') ?
   (user.options === 'Admin' || user.options === 'User') &&
   <>
-  <Media query="(min-width:600px)">
+  <Media query="(min-width:1300px)">
       {matches =>{
         return matches ?
       <>
@@ -34,13 +69,26 @@ let user = JSON.parse(localStorage.getItem('user-info'));
   <>
    <Navbar.Brand href="#">Welcome</Navbar.Brand>
    
-   <div style={{ position: 'relative',marginLeft:"150px"}}>
-      <GrStatusGoodSmall style ={{color:"red",position: 'absolute',
-          top: '3px',
-          right: '-1px',fontSize:"0.5rem"
- }}> </GrStatusGoodSmall>
-      <IoNotifications style={{color:'white',marginTop:"1px"}}></IoNotifications>
-      </div>
+   <div style={{ position: 'relative' }}>
+      {showComponent && (
+        <button
+          onClick={handleClick}
+          style={{
+            position: 'absolute',
+            top: '3px',
+            right: '-1px',
+            border: 'none',
+            background: 'transparent',
+            fontSize: '0.5rem',
+          }}
+        >
+          <GrStatusGoodSmall style={{ color: 'red' , position: 'absolute',
+            top: '3px',
+            right: '-1px' }} />
+        </button>
+      )}
+        <IoNotifications onClick={handleClick} style={{ color: 'white', marginTop: '1px' }} />
+    </div>
 
   </>;}}
   </Media>
