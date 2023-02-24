@@ -10,7 +10,7 @@ import {useState,useEffect} from 'react';
 
 function Header(){
   const navigate = useNavigate();
-  const [showComponent, setShowComponent] = useState(true);
+  const [showComponent, setShowComponent] = useState(false);
 
   const [data, setData] = useState([]);
 /*
@@ -39,7 +39,7 @@ function Header(){
 */
 
   const handleClick = () => {               
-    setShowComponent(false)
+    setShowComponent(!showComponent)
   
   };
   function logOut (){
@@ -58,56 +58,17 @@ let user = JSON.parse(localStorage.getItem('user-info'));
         {
   localStorage.getItem('user-info') ?
   (user.options === 'Admin' || user.options === 'User') &&
+ 
+
   <>
-  <Media query="(min-width:1300px)">
-      {matches =>{
-        return matches ?
-      <>
   <Navbar.Brand href="#">Welcome</Navbar.Brand>
   </>
-  :
-  <>
-   <Navbar.Brand href="#">Welcome</Navbar.Brand>
-   
-   <div style={{ position: 'relative' }}>
-      {showComponent && (
-        <button
-          onClick={handleClick}
-          style={{
-            position: 'absolute',
-            top: '3px',
-            right: '-1px',
-            border: 'none',
-            background: 'transparent',
-            fontSize: '0.5rem',
-          }}
-        >
-          <GrStatusGoodSmall style={{ color: 'red' , position: 'absolute',
-            top: '3px',
-            right: '-1px' }} />
-        </button>
-      )}
-        <IoNotifications onClick={handleClick} style={{ color: 'white', marginTop: '1px' }} />
-    </div>
-
-  </>;}}
-  </Media>
-  </>
   : 
-  <Media query="(min-width:600px)">
-  {matches =>{
-    return matches ?
   <>
   <Navbar.Brand href="#">Home</Navbar.Brand>
  
   </>
-  :
-  <>
-    <Navbar.Brand href="#">Home</Navbar.Brand>
-   <BsFacebook  style={{  marginLeft:"200px",marginRight:"60px",fontSize:"1.4rem"}}></BsFacebook>
-  </>
-  ;}}
-  </Media>
+  
 }
           
             <Navbar.Toggle aria-controls="Basic-navbar-nav"/>
@@ -118,7 +79,7 @@ let user = JSON.parse(localStorage.getItem('user-info'));
   localStorage.getItem('user-info') ?
   (
     user.options === 'Admin' ? (
-      <Media query="(min-width:600px)">
+      <Media query="(min-width:990px)">
       {matches =>{
         return matches ?
       <>
@@ -127,88 +88,116 @@ let user = JSON.parse(localStorage.getItem('user-info'));
         <Link to="/Historique" style={{textDecoration: "none", color: "white", margin: "20px"}}>Historique</Link>
         <Link to="/telechargmentpdf" style={{textDecoration: "none", color: "white", margin: "20px"}}>telechargmentpdf</Link>
         <Link to="/conventions" style={{textDecoration: "none", color: "white", margin: "20px"}}>conventions</Link>
-      <div style={{ position: 'relative',marginLeft:"270px",marginTop:"20px"}}>
-
+        <div style={{ position: 'relative',marginTop:"20px"}}  >
+        <button style={{ border: 'none', background: 'none' }} onClick={handleClick}>
       <GrStatusGoodSmall style ={{color:"red",position: 'absolute',
           top: '3px',
           right: '-1px',fontSize:"0.5rem"
  }}> </GrStatusGoodSmall>
-      <IoNotifications style={{color:'white',marginTop:"2px"}}></IoNotifications>
-      
+      <IoNotifications  style={{color:'white'}}></IoNotifications>
+      </button>
       </div>
+     
       </>
       :
       <>
-      <Link to="/GestionUtilisateur" style={{textDecoration: "none", color: "white", marginBottom: "15px",marginTop:"6px"}}>GestionUtilisateur</Link>
-      <Link to="/Evenement" style={{textDecoration: "none", color: "white", marginBottom: "15px"}}>Evenement</Link>
-      <Link to="/Historique" style={{textDecoration: "none", color: "white", marginBottom: "15px"}}>Historique</Link>
-      <Link to="/telechargmentpdf" style={{textDecoration: "none", color: "white", marginBottom: "15px"}}>telechargmentpdf</Link>
-      <Link to="/conventions" style={{textDecoration: "none", color: "white", marginBottom: "15px"}}>conventions</Link>
+      <Link to="/GestionUtilisateur" style={{textDecoration: "none", color: "white",padding:10}}>GestionUtilisateur</Link>
+      <Link to="/Evenement" style={{textDecoration: "none", color: "white",padding:10}}>Evenement</Link>
+      <Link to="/Historique" style={{textDecoration: "none", color: "white", padding:10}}>Historique</Link>
+      <Link to="/telechargmentpdf" style={{textDecoration: "none", color: "white", padding:10}}>telechargmentpdf</Link>
+      <Link to="/conventions" style={{textDecoration: "none", color: "white", padding:10}}>conventions</Link>
+      <div style={{ position: 'relative',marginTop:"20px"}}  >
+        <button style={{ border: 'none', background: 'none' }} onClick={handleClick}>
+      <GrStatusGoodSmall style ={{color:"red",position: 'absolute',
+          top: '3px',
+          right: '670px',fontSize:"0.5rem"
+ }}> </GrStatusGoodSmall>
+      <IoNotifications  style={{color:'white'}}></IoNotifications>
+      </button>
+      </div>
 
     </>;}}
     </Media>
     ) : user.options === 'User' ? (
-      <Media query="(min-width:600px)">
+      <Media query="(min-width: 990px) ">
       {matches =>{
         return matches ?
       <>
-        <Link to="/AffichageEvent" style={{textDecoration: "none", color: "white", margin: "30px"}}>AffichageEvent</Link>
+    
+        <Link to="/AffichageEvent" style={{textDecoration: "none", color: "white" , margin: "30px"}}>AffichageEvent</Link>
         <Link to="/AffichageConvention" style={{textDecoration: "none", color: "white", margin: "30px"}}>AffichageConventions</Link>
-        <div style={{ position: 'relative',marginLeft:"600px",marginTop:"30px"}}>
+        <div style={{ position: 'relative',marginTop:"30px"}}  >
+        <button style={{ border: 'none', background: 'none' }} onClick={handleClick}>
       <GrStatusGoodSmall style ={{color:"red",position: 'absolute',
           top: '3px',
           right: '-1px',fontSize:"0.5rem"
  }}> </GrStatusGoodSmall>
-      <IoNotifications style={{color:'white'}}></IoNotifications>
-      
+      <IoNotifications  style={{color:'white'}}></IoNotifications>
+      </button>
       </div>
       </>
       :
       <>
-        <Link to="/AffichageEvent" style={{textDecoration: "none", color: "white", marginBottom: "15px",marginTop:"6px"}}>AffichageEvent</Link>
-        <Link to="/AffichageConvention" style={{textDecoration: "none", color: "white", marginBottom: "15px"}}>AffichageConventions</Link>
-   
+        <Link to="/AffichageEvent" style={{textDecoration: "none", color: "white", marginRight: "15px"}}>AffichageEvent</Link>
+        <Link to="/AffichageConvention" style={{textDecoration: "none", color: "white", marginRight: "15px"}}>AffichageConventions</Link>
+        <div style={{ position: 'relative',marginTop:"20px"}}  >
+        <button style={{ border: 'none', background: 'none' }} onClick={handleClick}>
+      <GrStatusGoodSmall style ={{color:"red",position: 'absolute',
+          top: '3px',
+          right: '670px',fontSize:"0.5rem"
+ }}> </GrStatusGoodSmall>
+      <IoNotifications  style={{color:'white'}}></IoNotifications>
+      </button>
+      </div>
       </>;
     }}
     </Media>
     ) : null
   )
   : (
-  <Media query="(min-width:600px)">
+  <Media query="(min-width:990px)">
     {matches =>{
       return matches ?
-    
-         <>
-         <Link to="/AboutUs" style={{textDecoration: "none", color: "white", padding: "15px" ,marginRight:"10px"}}>
-          AboutUs
-          </Link>
-          <Link to="/ContactUs" style={{textDecoration: "none", color: "white", padding: "15px", marginRight:"10px"}}>
-           ContactUs
-          </Link>
-          <BsFacebook  style={{  marginTop:"15px",marginLeft:"60px",marginRight:"60px",fontSize:"1.6rem"}}></BsFacebook>
-          <Link to="/Login" style={{textDecoration: "none", color: "white", padding: "8px" , marginRight:"15px"}}>
+  
+      
+      <>
+          <Link to="/AboutUs" style={{textDecoration: "none", color: "white",marginLeft:30, marginRight: 30,marginTop:7 }}>
+      AboutUs
+      </Link>
+      <Link to="/ContactUs" style={{textDecoration: "none", color: "white", marginRight: 30,marginTop:7}}>
+       ContactUs
+      </Link>
+     <BsFacebook style ={{paddingLeft:2,paddingRight:2,fontSize:"2rem",marginTop:4}}></BsFacebook>
+      
+      <Link to="/Login" style={{textDecoration: "none", color: "white" ,marginLeft:"30px", marginRight:"15px",marginTop:3}}>
             <Button style={{border: "1 solid black", backgroundColor: "#03045e"}}>Login</Button>
           </Link>
-          <Link to="/Register" style={{textDecoration: "none", color: "white", padding: "8px", marginRight:"15px"}}>
+          <Link to="/Register" style={{textDecoration: "none", color: "white", marginLeft:"30px",marginTop:3}}>
             <Button style={{border: "1 solid black", backgroundColor: "#03045e"}}>SignUp</Button>
            
           </Link>
-          </>
+      </>
       :
       <>
-      <Link to="/AboutUs" style={{textDecoration: "none", color: "white", padding: "3px" ,marginBottom:"10px",marginTop:"2px"}}>
+       <Link to="/AboutUs" style={{textDecoration: "none", color: "white", paddingButtom: "10px" }}>
       AboutUs
       </Link>
-      <Link to="/ContactUs" style={{textDecoration: "none", color: "white", padding: "3px", marginBottom:"10px"}}>
+      <Link to="/ContactUs" style={{textDecoration: "none", color: "white",paddingButtom:"10px"}}>
        ContactUs
       </Link>
-      <Link to="/Login" style={{textDecoration: "none", color: "white", padding: "3px" , marginBottom:"10px"}}>
-        Login
-      </Link>
-      <Link to="/Register" style={{textDecoration: "none", color: "white", padding: "3px", marginBottom:"10px"}}>
-       SignUp
-      </Link>
-      </>;}}
+     
+      <BsFacebook style ={{fontSize:"1.5rem"}}></BsFacebook>
+      <Link to="/Login" style={{textDecoration: "none", color: "white", paddingButtom:10}}>
+            Login
+          </Link>
+          <Link to="/Register" style={{textDecoration: "none", color: "white", marginButtom:10}}>
+   SignUp
+           
+          </Link>
+      
+      </>
+      
+      ;}}
 </Media>
 
     )
