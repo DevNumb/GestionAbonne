@@ -11,35 +11,43 @@ import {useState,useEffect} from 'react';
 function Header(){
   const navigate = useNavigate();
   const [showComponent, setShowComponent] = useState(false);
-
-  const [data, setData] = useState([]);
+const [data,setData] = useState();
 /*
-  useEffect(() => {
-    const fetchData = async () => {
-      const response = await fetch('http://localhost:8000/api/check');
-      const newData = await response.json();
-      setData(newData);
-    };
+useEffect(() => {
+  const fetchData = async () => {
+    const response = await fetch('http://localhost:8000/api/check');
+    
+    const data1 = await response.json();
+    console.warn(data1);
+    if (data1 === 1) {
+      setData(1);
+    } else {
+      setData(0);
+    }
+  };
+  fetchData();
 
-    const intervalId = setInterval(() => {
-      fetchData();
-    }, 5000);
+  const intervalId = setInterval(() => {
+    fetchData();
+  }, 5000);
 
-    return () => clearInterval(intervalId);
-  }, []);
+  return () => clearInterval(intervalId);
+}, []);
+
 
   function checkAddedData (){
-    if (data.length){
+    if (data==1){
        setShowComponent(true);
-       setData(null);
+       setData(0);
     }
 
 
   }
+checkAddedData();
 */
-
   const handleClick = () => {               
-    setShowComponent(!showComponent)
+    setShowComponent(false);
+  
   
   };
   function logOut (){
@@ -49,7 +57,7 @@ function Header(){
     
     }
  
-    console.warn ("result",data);
+  
 let user = JSON.parse(localStorage.getItem('user-info'));
     return (
         <Navbar bg="primary" variant="dark" expand="lg">
@@ -90,10 +98,10 @@ let user = JSON.parse(localStorage.getItem('user-info'));
         <Link to="/conventions" style={{textDecoration: "none", color: "white", margin: "20px"}}>conventions</Link>
         <div style={{ position: 'relative',marginTop:"20px"}}  >
         <button style={{ border: 'none', background: 'none' }} onClick={handleClick}>
-      <GrStatusGoodSmall style ={{color:"red",position: 'absolute',
+    {showComponent &&  <GrStatusGoodSmall style ={{color:"red",position: 'absolute',
           top: '3px',
           right: '-1px',fontSize:"0.5rem"
- }}> </GrStatusGoodSmall>
+ }}> </GrStatusGoodSmall>}
       <IoNotifications  style={{color:'white'}}></IoNotifications>
       </button>
       </div>
@@ -108,10 +116,10 @@ let user = JSON.parse(localStorage.getItem('user-info'));
       <Link to="/conventions" style={{textDecoration: "none", color: "white", padding:10}}>conventions</Link>
       <div style={{ position: 'relative',marginTop:"20px"}}  >
         <button style={{ border: 'none', background: 'none' }} onClick={handleClick}>
-      <GrStatusGoodSmall style ={{color:"red",position: 'absolute',
+    {showComponent &&  <GrStatusGoodSmall style ={{color:"red",position: 'absolute',
           top: '3px',
           right: '670px',fontSize:"0.5rem"
- }}> </GrStatusGoodSmall>
+ }}> </GrStatusGoodSmall>}
       <IoNotifications  style={{color:'white'}}></IoNotifications>
       </button>
       </div>
@@ -128,10 +136,10 @@ let user = JSON.parse(localStorage.getItem('user-info'));
         <Link to="/AffichageConvention" style={{textDecoration: "none", color: "white", margin: "30px"}}>AffichageConventions</Link>
         <div style={{ position: 'relative',marginTop:"30px"}}  >
         <button style={{ border: 'none', background: 'none' }} onClick={handleClick}>
-      <GrStatusGoodSmall style ={{color:"red",position: 'absolute',
+     {showComponent && <GrStatusGoodSmall style ={{color:"red",position: 'absolute',
           top: '3px',
           right: '-1px',fontSize:"0.5rem"
- }}> </GrStatusGoodSmall>
+ }}> </GrStatusGoodSmall>}
       <IoNotifications  style={{color:'white'}}></IoNotifications>
       </button>
       </div>
@@ -142,10 +150,10 @@ let user = JSON.parse(localStorage.getItem('user-info'));
         <Link to="/AffichageConvention" style={{textDecoration: "none", color: "white", marginRight: "15px"}}>AffichageConventions</Link>
         <div style={{ position: 'relative',marginTop:"20px"}}  >
         <button style={{ border: 'none', background: 'none' }} onClick={handleClick}>
-      <GrStatusGoodSmall style ={{color:"red",position: 'absolute',
+     {showComponent && <GrStatusGoodSmall style ={{color:"red",position: 'absolute',
           top: '3px',
           right: '670px',fontSize:"0.5rem"
- }}> </GrStatusGoodSmall>
+ }}> </GrStatusGoodSmall> }
       <IoNotifications  style={{color:'white'}}></IoNotifications>
       </button>
       </div>
@@ -161,10 +169,10 @@ let user = JSON.parse(localStorage.getItem('user-info'));
   
       
       <>
-          <Link to="/AboutUs" style={{textDecoration: "none", color: "white",marginLeft:30, marginRight: 30,marginTop:7 }}>
+          <Link to="/AboutUs" style={{textDecoration: "none", color: "white",fontSize:'1.05rem',marginLeft:30, marginRight: 30,marginTop:8 }}>
       AboutUs
       </Link>
-      <Link to="/ContactUs" style={{textDecoration: "none", color: "white", marginRight: 30,marginTop:7}}>
+      <Link to="/ContactUs" style={{textDecoration: "none", color: "white",fontSize:'1.05rem', marginRight: 30,marginTop:8}}>
        ContactUs
       </Link>
      <BsFacebook style ={{paddingLeft:2,paddingRight:2,fontSize:"2rem",marginTop:4}}></BsFacebook>
