@@ -1,6 +1,6 @@
-import {Navbar,Nav,Container, NavDropdown}  from 'react-bootstrap';
+import {Navbar,Nav,Container, NavDropdown,Toast}  from 'react-bootstrap';
 import {Link} from  'react-router-dom';
-import {Button} from 'react-bootstrap';
+import {Button,Row,Col} from 'react-bootstrap';
 import {useNavigate} from 'react-router-dom';
 import {BsFacebook} from 'react-icons/bs';
 import Media from 'react-media';
@@ -10,8 +10,13 @@ import {useState,useEffect} from 'react';
 
 function Header(){
   const navigate = useNavigate();
-  const [showComponent, setShowComponent] = useState(false);
+  const [showComponent, setShowComponent] = useState(true);
 const [data,setData] = useState();
+const [showA, setShowA] = useState(true);
+const [showB, setShowB] = useState(true);
+
+const toggleShowA = () => setShowA(!showA);
+const toggleShowB = () => setShowB(!showB);
 /*
 useEffect(() => {
   const fetchData = async () => {
@@ -60,6 +65,7 @@ checkAddedData();
   
 let user = JSON.parse(localStorage.getItem('user-info'));
     return (
+      
         <Navbar bg="primary" variant="dark" expand="lg">
         <Container>
         
@@ -96,16 +102,37 @@ let user = JSON.parse(localStorage.getItem('user-info'));
         <Link to="/Historique" style={{textDecoration: "none", color: "white", margin: "20px"}}>Historique</Link>
         <Link to="/telechargmentpdf" style={{textDecoration: "none", color: "white", margin: "20px"}}>telechargmentpdf</Link>
         <Link to="/conventions" style={{textDecoration: "none", color: "white", margin: "20px"}}>conventions</Link>
-        <div style={{ position: 'relative',marginTop:"20px"}}  >
-        <button style={{ border: 'none', background: 'none' }} onClick={handleClick}>
-    {showComponent &&  <GrStatusGoodSmall style ={{color:"red",position: 'absolute',
-          top: '3px',
-          right: '-1px',fontSize:"0.5rem"
+        <div style={{ position: 'relative',marginTop:"11px"}}  >
+        <Row>
+    
+    <Col md={6} className="mb-2">
+    <button style={{ border: 'none', background: 'none' }} onClick={handleClick}>
+    <Button onClick={toggleShowB} className="mb-2">
+      {showComponent &&  <GrStatusGoodSmall style ={{color:"red",position: 'absolute',
+          top: '8px',
+          right: '150px',fontSize:"0.5rem"
  }}> </GrStatusGoodSmall>}
       <IoNotifications  style={{color:'white'}}></IoNotifications>
-      </button>
+      </Button>
+  </button>
+    <div style={{width:200}}>
+      <Toast onClose={toggleShowB} show={showB} animation={false}  style={{ position: 'absolute' }}>
+        <Toast.Header>
+          <img
+            src="holder.js/20x20?text=%20"
+            className="rounded me-2"
+            alt=""
+          />
+          <strong className="me-auto">Evenement</strong>
+        </Toast.Header>
+        <Toast.Body>Nouvelle evenement</Toast.Body>
+      </Toast>
       </div>
-     
+    </Col>
+  </Row>
+   
+      </div>
+  
       </>
       :
       <>
@@ -122,6 +149,7 @@ let user = JSON.parse(localStorage.getItem('user-info'));
  }}> </GrStatusGoodSmall>}
       <IoNotifications  style={{color:'white'}}></IoNotifications>
       </button>
+     
       </div>
 
     </>;}}
@@ -231,7 +259,9 @@ let user = JSON.parse(localStorage.getItem('user-info'));
 
 </Navbar.Collapse>
           </Container> 
-          </Navbar> 
+          </Navbar>
+          
+   
     )
 }
 
