@@ -7,8 +7,9 @@ import Media from 'react-media';
 import {IoNotifications} from 'react-icons/io5';
 import {GrStatusGoodSmall} from 'react-icons/gr';
 import {useState,useEffect} from 'react';
-
+import  {added} from './Events';
 function Header(){
+  console.warn (added);
   const navigate = useNavigate();
   const [showComponent, setShowComponent] = useState(true);
 const [data,setData] = useState();

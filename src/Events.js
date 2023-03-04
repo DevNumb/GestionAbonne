@@ -1,5 +1,6 @@
 import {Button,Table}from 'react-bootstrap';
 import {useState,useEffect} from 'react';
+export const added = false;
 
 
 function Events(){
@@ -38,8 +39,9 @@ let result = await fetch("http://localhost:8000/api/addEvent",{
 method: 'post',
 body: formData
 });
-alert("Enregistrer");
+alert("Enregistrerr");
 fetchData1();
+ added = true;
 }
 
  
