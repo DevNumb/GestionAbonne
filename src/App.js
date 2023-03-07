@@ -16,6 +16,7 @@ import AffichageConvention from './AffichageConvention';
 import AboutUs from './AboutUs';
 import ContactUs from './ContactUs';
 import {Helmet} from "react-helmet";
+import Promotion from './Promotion';
 function App() {
   return (
   
@@ -24,7 +25,7 @@ function App() {
                 <meta charSet="utf-8" />
                 <title>GestionAbonne</title>
                 <link rel="canonical" href="http://mysite.com/example" />
-                <meta name="description" content="test" />
+                <meta name="Gestion" content="test" />
             </Helmet>
     <>
     <Header />  
@@ -69,6 +70,16 @@ function App() {
                 {/*<Conventions/>*/}
                 </>
              }/>
+   <Route path="/Promotion" element={
+                <>
+                <Protected Cmp ={Promotion}/>
+                {/*<Promotion/>*/}
+                </>
+             }/>
+
+
+
+
 
 <Route path="/AffichageEvent" element={
                 <>

@@ -34,7 +34,8 @@ async function signUp() {
 
   const response = await result.json();
   alert ("attent le energisterment");
- 
+  let result2 = await fetch ("http://localhost:8000/api/send");
+
 }
 
     return (

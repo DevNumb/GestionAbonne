@@ -7,9 +7,7 @@ import Media from 'react-media';
 import {IoNotifications} from 'react-icons/io5';
 import {GrStatusGoodSmall} from 'react-icons/gr';
 import {useState,useEffect} from 'react';
-import  {added} from './Events';
 function Header(){
-  console.warn (added);
   const navigate = useNavigate();
   const [showComponent, setShowComponent] = useState(true);
 const [data,setData] = useState();
@@ -18,39 +16,7 @@ const [showB, setShowB] = useState(true);
 
 const toggleShowA = () => setShowA(!showA);
 const toggleShowB = () => setShowB(!showB);
-/*
-useEffect(() => {
-  const fetchData = async () => {
-    const response = await fetch('http://localhost:8000/api/check');
-    
-    const data1 = await response.json();
-    console.warn(data1);
-    if (data1 === 1) {
-      setData(1);
-    } else {
-      setData(0);
-    }
-  };
-  fetchData();
 
-  const intervalId = setInterval(() => {
-    fetchData();
-  }, 5000);
-
-  return () => clearInterval(intervalId);
-}, []);
-
-
-  function checkAddedData (){
-    if (data==1){
-       setShowComponent(true);
-       setData(0);
-    }
-
-
-  }
-checkAddedData();
-*/
   const handleClick = () => {               
     setShowComponent(false);
   
@@ -103,6 +69,7 @@ let user = JSON.parse(localStorage.getItem('user-info'));
         <Link to="/Historique" style={{textDecoration: "none", color: "white", margin: "20px"}}>Historique</Link>
         <Link to="/telechargmentpdf" style={{textDecoration: "none", color: "white", margin: "20px"}}>telechargmentpdf</Link>
         <Link to="/conventions" style={{textDecoration: "none", color: "white", margin: "20px"}}>conventions</Link>
+        <Link to="/Promotion" style={{textDecoration: "none", color: "white", margin: "20px"}}>Promotion</Link>
         <div style={{ position: 'relative',marginTop:"11px"}}  >
         <Row>
     
