@@ -3,7 +3,7 @@ import {useState,useEffect} from 'react';
 
 function Promotion(){
     async function fetchData1(){
-        let result = await fetch ("http://localhost:8000/api/listEvent");
+        let result = await fetch ("http://localhost:8000/api/listPromo");
        result = await result.json();
       setData1(result);
       } 
@@ -14,7 +14,7 @@ function Promotion(){
     fetchData1();
     
     },[])
-    const [nom_event,setNom_event] = useState();
+    const [nom_promo,setNom_promo] = useState();
     const [file,setFile] = useState();
     
     async function delEvents(id){
@@ -30,9 +30,9 @@ function Promotion(){
     }
     async function addEvents(){
     const formData = new FormData();
-    formData.append('nom_event',nom_event);
+    formData.append('nom_promo',nom_promo);
     formData.append('file',file);
-    let result = await fetch("http://localhost:8000/api/addEvent",{
+    let result = await fetch("http://localhost:8000/api/addPromo",{
     method: 'post',
     body: formData
     });
@@ -40,7 +40,6 @@ function Promotion(){
     
     
     fetchData1();
-    let result2 = await fetch ("http://localhost:8000/api/sends");
     }
     
      
@@ -59,7 +58,7 @@ function Promotion(){
                   border: "1px solid lightgray",
                   padding: 10,
                   marginBottom: 20,
-                }} onChange={(e)=>setNom_event(e.target.value)}></input>
+                }} onChange={(e)=>setNom_promo(e.target.value)}></input>
                 <input type="file" name ="file" className="form-control" placeholder="file" style={{marginBottom: 20}} onChange={(e)=>setFile(e.target.files[0])}></input> 
          <Button variant="primary" type="submit" style={{  flex: 0,width:"80px",
                   marginBottom: 10}} onClick={addEvents}>
@@ -78,11 +77,11 @@ function Promotion(){
           </thead>
           <tbody>
           {data1.map((item) => (
-      <tr key={item.id_event}>
-        <td>{item.id_event}</td>
-        <td>{item.nom_event}</td>
+      <tr key={item.id_Promo}>
+        <td>{item.id_Promo}</td>
+        <td>{item.nom_Promo}</td>
         <td style={{display:"flex" , flexDirection:"row",justifyContent:"space-between"}}>
-          <a href ={"http://localhost:8000/" + item.Img}  download={item.Img} >
+          <a href ={"http://localhost:8000/" + item.Promo_img}  download={item.Promo_img} >
             <Button class="primary" style={{marginRight:"5px"}}  >Telechargement</Button> </a> 
            
             </td>
