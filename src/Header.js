@@ -7,6 +7,7 @@ import Media from 'react-media';
 import {IoNotifications} from 'react-icons/io5';
 import {GrStatusGoodSmall} from 'react-icons/gr';
 import {useState,useEffect} from 'react';
+import "@fontsource/poppins";
 function Header(){
   const navigate = useNavigate();
   const [showComponent, setShowComponent] = useState(true);
@@ -42,11 +43,11 @@ let user = JSON.parse(localStorage.getItem('user-info'));
  
 
   <>
-  <Navbar.Brand href="#">Welcome</Navbar.Brand>
+  <Navbar.Brand href="#" style ={{fontFamily:"Poppins"}}>Welcome</Navbar.Brand>
   </>
   : 
   <>
-  <Navbar.Brand href="#">Home</Navbar.Brand>
+  <Navbar.Brand href="#"style ={{fontFamily:"Poppins"}} >Home</Navbar.Brand>
  
   </>
   
@@ -165,11 +166,11 @@ let user = JSON.parse(localStorage.getItem('user-info'));
   
       
       <>
-          <Link to="/AboutUs" style={{textDecoration: "none", color: "white",fontSize:'1.05rem',marginLeft:30, marginRight: 30,marginTop:8 }}>
-      AboutUs
+          <Link to="/AboutUs" style={{textDecoration: "none", color: "white",fontSize:'1.05rem',marginLeft:30, marginRight: 30,marginTop:8,fontFamily:"Poppins" }}>
+      About
       </Link>
-      <Link to="/ContactUs" style={{textDecoration: "none", color: "white",fontSize:'1.05rem', marginRight: 30,marginTop:8}}>
-       ContactUs
+      <Link to="/ContactUs" style={{textDecoration: "none", color: "white",fontSize:'1.05rem', marginRight: 30,marginTop:8,fontFamily:"Poppins"}}>
+       Contact
       </Link>
      <BsFacebook style ={{paddingLeft:2,paddingRight:2,fontSize:"2rem",marginTop:4}}></BsFacebook>
       
