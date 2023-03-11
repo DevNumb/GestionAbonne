@@ -33,7 +33,9 @@ if (result.options == "Admin"){
     localStorage.clear();
   }
     }
-
+function redirect (){
+  navigate("/register");
+}
    
     return (
 
@@ -47,7 +49,7 @@ if (result.options == "Admin"){
         boxSizing: "border-box"
       }}>
         <div style={{ display: "flex", flexDirection: "column", alignItems: "center", backgroundColor: "white", boxShadow: "2px 2px 10px lightgray", padding: 30 }}>
-        <h1>Login Page</h1><br></br>
+        <h2 style ={{fontFamily:"poppins" ,fontWeight:"bold"}}>Login Page</h2><br></br>
           <input
             style={{
               height: 40,
@@ -82,12 +84,14 @@ if (result.options == "Admin"){
               color: "white",
               border: "none",
               marginTop: 10,
+              fontFamily:"poppins" ,
+              fontWeight:"bold"
             }}
             onClick={login} 
           >
             Login
           </button>
-          
+          <button onClick={redirect} style={{textUnderlinePosition:"under", textDecoration:"underline gray",color:"gray",fontFamily:"poppins",border:"none" ,marginTop: 20}}>Nouvelle compte ?</button>
         </div>
       </div>
  

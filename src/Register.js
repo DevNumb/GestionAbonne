@@ -38,11 +38,15 @@ async function signUp() {
 
 }
 
+function redirect(){
+  navigate("/login");
+}
+
     return (
 
         <div style={{ display: "flex", height: "100vh", alignItems: "center", justifyContent: "center", backgroundColor: "#F0F8FF" }}>
         <div style={{ display: "flex", flexDirection: "column", alignItems: "center", backgroundColor: "white", boxShadow: "2px 2px 10px lightgray", padding: 50 }}>
-        <h1>Register Page</h1><br></br>
+        <h1 style={{fontFamily:"poppins" ,fontWeight:"bold"}}>Register Page</h1><br></br>
           <input
             style={{
               height: 40,
@@ -125,13 +129,17 @@ async function signUp() {
               backgroundColor: "blue",
               color: "white",
               marginTop: 10,
+              marginBottom:10,
               cursor: "pointer",
               border: "none",
+              fontFamily:"poppins",
+              fontWeight:"bold"
             }}
             onClick= {signUp}
             >
             SignUp
           </button>
+          <button onClick={redirect} style={{textUnderlinePosition:"under", textDecoration:"underline gray",color:"gray",fontFamily:"poppins",border:"none" ,marginTop: 10}}>Already SignIn ?</button>
           </div>
           </div>
  

@@ -8,6 +8,7 @@ import {IoNotifications} from 'react-icons/io5';
 import {GrStatusGoodSmall} from 'react-icons/gr';
 import {useState,useEffect} from 'react';
 import "@fontsource/poppins";
+import people from './people.png';
 function Header(){
   const navigate = useNavigate();
   const [showComponent, setShowComponent] = useState(true);
@@ -43,11 +44,11 @@ let user = JSON.parse(localStorage.getItem('user-info'));
  
 
   <>
-  <Navbar.Brand href="#" style ={{fontFamily:"Poppins"}}>Welcome</Navbar.Brand>
+  <Navbar.Brand href="#" style ={{fontFamily:"Poppins"}}><img src ="868320_people_512x512.png" alt="error" width="300" height="200"></img>Welcome</Navbar.Brand>
   </>
   : 
   <>
-  <Navbar.Brand href="#"style ={{fontFamily:"Poppins"}} >Home</Navbar.Brand>
+  <Navbar.Brand href="#"style ={{fontFamily:"Poppins"}} ><img src={people} alt="error" width="40" height="40" style={{marginRight:30}}></img>Home</Navbar.Brand>
  
   </>
   
@@ -166,32 +167,25 @@ let user = JSON.parse(localStorage.getItem('user-info'));
   
       
       <>
-          <Link to="/AboutUs" style={{textDecoration: "none", color: "white",fontSize:'1.05rem',marginLeft:30, marginRight: 30,marginTop:8,fontFamily:"Poppins" }}>
+      <div style ={{marginLeft: "60vw"}}>
+          <Link to="/AboutUs" style={{textDecoration: "none", color: "white",fontSize:'1rem' ,marginTop:1,fontFamily:"Poppins" }}>
       About
       </Link>
-      <Link to="/ContactUs" style={{textDecoration: "none", color: "white",fontSize:'1.05rem', marginRight: 30,marginTop:8,fontFamily:"Poppins"}}>
+      <Link to="/ContactUs" style={{textDecoration: "none", color: "white",fontSize:'1rem',paddingLeft:30,position:'absolute',marginTop:1,fontFamily:"Poppins"}}>
        Contact
       </Link>
-     <BsFacebook style ={{paddingLeft:2,paddingRight:2,fontSize:"2rem",marginTop:4}}></BsFacebook>
-      
-      <Link to="/Login" style={{textDecoration: "none", color: "white" ,marginLeft:"30px", marginRight:"15px",marginTop:3}}>
-            <Button style={{border: "1 solid black", backgroundColor: "#03045e"}}>Login</Button>
-          </Link>
-          <Link to="/Register" style={{textDecoration: "none", color: "white", marginLeft:"30px",marginTop:3}}>
-            <Button style={{border: "1 solid black", backgroundColor: "#03045e"}}>SignUp</Button>
-           
-          </Link>
+      </div>
+    
       </>
       :
       <>
        <Link to="/AboutUs" style={{textDecoration: "none", color: "white", paddingButtom: "10px" }}>
-      AboutUs
+      About
       </Link>
       <Link to="/ContactUs" style={{textDecoration: "none", color: "white",paddingButtom:"10px"}}>
-       ContactUs
+       Contact
       </Link>
      
-      <BsFacebook style ={{fontSize:"1.5rem"}}></BsFacebook>
       <Link to="/Login" style={{textDecoration: "none", color: "white", paddingButtom:10}}>
             Login
           </Link>
