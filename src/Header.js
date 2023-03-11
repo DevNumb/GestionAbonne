@@ -2,21 +2,19 @@ import {Navbar,Nav,Container, NavDropdown,Toast}  from 'react-bootstrap';
 import {Link} from  'react-router-dom';
 import {Button,Row,Col} from 'react-bootstrap';
 import {useNavigate} from 'react-router-dom';
-import {BsFacebook} from 'react-icons/bs';
 import Media from 'react-media';
 import {IoNotifications} from 'react-icons/io5';
 import {GrStatusGoodSmall} from 'react-icons/gr';
 import {useState,useEffect} from 'react';
 import "@fontsource/poppins";
 import people from './people.png';
+import Breadcrumb from 'react-bootstrap/Breadcrumb';
 function Header(){
   const navigate = useNavigate();
   const [showComponent, setShowComponent] = useState(true);
 const [data,setData] = useState();
-const [showA, setShowA] = useState(true);
 const [showB, setShowB] = useState(true);
-
-const toggleShowA = () => setShowA(!showA);
+const [showA, setShowA] = useState(true);
 const toggleShowB = () => setShowB(!showB);
 
   const handleClick = () => {               
@@ -44,7 +42,7 @@ let user = JSON.parse(localStorage.getItem('user-info'));
  
 
   <>
-  <Navbar.Brand href="#" style ={{fontFamily:"Poppins"}}><img src ="868320_people_512x512.png" alt="error" width="300" height="200"></img>Welcome</Navbar.Brand>
+  <Navbar.Brand href="#" style ={{fontFamily:"Poppins"}}><img src={people} alt="error" width="40" height="40" style={{marginRight:30}}></img>Welcome</Navbar.Brand>
   </>
   : 
   <>
@@ -66,12 +64,12 @@ let user = JSON.parse(localStorage.getItem('user-info'));
       {matches =>{
         return matches ?
       <>
-        <Link to="/GestionUtilisateur" style={{textDecoration: "none", color: "white", margin: "20px"}}>GestionUtilisateur</Link>
-        <Link to="/Evenement" style={{textDecoration: "none", color: "white", margin: "20px"}}>Evenement</Link>
-        <Link to="/Historique" style={{textDecoration: "none", color: "white", margin: "20px"}}>Historique</Link>
-        <Link to="/telechargmentpdf" style={{textDecoration: "none", color: "white", margin: "20px"}}>telechargmentpdf</Link>
-        <Link to="/conventions" style={{textDecoration: "none", color: "white", margin: "20px"}}>conventions</Link>
-        <Link to="/Promotion" style={{textDecoration: "none", color: "white", margin: "20px"}}>Promotion</Link>
+        <Link to="/GestionUtilisateur" style={{textDecoration: "none", color: "white", margin: "20px",fontFamily:"poppins"}}>GestionUtilisateur</Link>
+        <Link to="/Evenement" style={{textDecoration: "none", color: "white", margin: "20px",fontFamily:"poppins"}}>Evenement</Link>
+        <Link to="/Historique" style={{textDecoration: "none", color: "white", margin: "20px",fontFamily:"poppins"}}>Historique</Link>
+        <Link to="/telechargmentpdf" style={{textDecoration: "none", color: "white", margin: "20px",fontFamily:"poppins"}}>telechargmentpdf</Link>
+        <Link to="/conventions" style={{textDecoration: "none", color: "white", margin: "20px",fontFamily:"poppins"}}>conventions</Link>
+        <Link to="/Promotion" style={{textDecoration: "none", color: "white", margin: "20px",fontFamily:"poppins"}}>Promotion</Link>
         <div style={{ position: 'relative',marginTop:"11px"}}  >
         <Row>
     
@@ -106,11 +104,11 @@ let user = JSON.parse(localStorage.getItem('user-info'));
       </>
       :
       <>
-      <Link to="/GestionUtilisateur" style={{textDecoration: "none", color: "white",padding:10}}>GestionUtilisateur</Link>
-      <Link to="/Evenement" style={{textDecoration: "none", color: "white",padding:10}}>Evenement</Link>
-      <Link to="/Historique" style={{textDecoration: "none", color: "white", padding:10}}>Historique</Link>
-      <Link to="/telechargmentpdf" style={{textDecoration: "none", color: "white", padding:10}}>telechargmentpdf</Link>
-      <Link to="/conventions" style={{textDecoration: "none", color: "white", padding:10}}>conventions</Link>
+      <Link to="/GestionUtilisateur" style={{textDecoration: "none", color: "white",padding:10,fontFamily:"poppins"}}>GestionUtilisateur</Link>
+      <Link to="/Evenement" style={{textDecoration: "none", color: "white",padding:10,fontFamily:"poppins"}}>Evenement</Link>
+      <Link to="/Historique" style={{textDecoration: "none", color: "white", padding:10,fontFamily:"poppins"}}>Historique</Link>
+      <Link to="/telechargmentpdf" style={{textDecoration: "none", color: "white", padding:10,fontFamily:"poppins"}}>telechargmentpdf</Link>
+      <Link to="/conventions" style={{textDecoration: "none", color: "white", padding:10,fontFamily:"poppins"}}>conventions</Link>
       <div style={{ position: 'relative',marginTop:"20px"}}  >
         <button style={{ border: 'none', background: 'none' }} onClick={handleClick}>
     {showComponent &&  <GrStatusGoodSmall style ={{color:"red",position: 'absolute',
@@ -130,9 +128,9 @@ let user = JSON.parse(localStorage.getItem('user-info'));
         return matches ?
       <>
     
-        <Link to="/AffichageEvent" style={{textDecoration: "none", color: "white" , margin: "30px"}}>AffichageEvent</Link>
-        <Link to="/AffichageConvention" style={{textDecoration: "none", color: "white", margin: "30px"}}>AffichageConventions</Link>
-        <div style={{ position: 'relative',marginTop:"30px"}}  >
+        <Link to="/AffichageEvent" style={{textDecoration: "none", color: "white" , marginLeft: "30px",marginTop:"3px",fontFamily:"poppins"}}>AffichageEvent</Link>
+        <Link to="/AffichageConvention" style={{textDecoration: "none", color: "white", marginLeft: "30px",marginTop:"3px",fontFamily:"poppins"}}>AffichageConventions</Link>
+        <div style={{ position: 'relative',marginLeft:"30px",marginTop:"0px"}}  >
         <button style={{ border: 'none', background: 'none' }} onClick={handleClick}>
      {showComponent && <GrStatusGoodSmall style ={{color:"red",position: 'absolute',
           top: '3px',
@@ -144,9 +142,9 @@ let user = JSON.parse(localStorage.getItem('user-info'));
       </>
       :
       <>
-        <Link to="/AffichageEvent" style={{textDecoration: "none", color: "white", marginRight: "15px"}}>AffichageEvent</Link>
-        <Link to="/AffichageConvention" style={{textDecoration: "none", color: "white", marginRight: "15px"}}>AffichageConventions</Link>
-        <div style={{ position: 'relative',marginTop:"20px"}}  >
+        <Link to="/AffichageEvent" style={{textDecoration: "none", color: "white", marginTop: "15px",fontFamily:"poppins"}}>AffichageEvent</Link>
+        <Link to="/AffichageConvention" style={{textDecoration: "none", color: "white", marginTop: "15px",fontFamily:"poppins"}}>AffichageConventions</Link>
+        <div style={{ position: 'relative',marginTop:"10px"}}  >
         <button style={{ border: 'none', background: 'none' }} onClick={handleClick}>
      {showComponent && <GrStatusGoodSmall style ={{color:"red",position: 'absolute',
           top: '3px',
@@ -179,20 +177,27 @@ let user = JSON.parse(localStorage.getItem('user-info'));
       </>
       :
       <>
-       <Link to="/AboutUs" style={{textDecoration: "none", color: "white", paddingButtom: "10px" }}>
+      <Breadcrumb style={{display:'flex',flexDirection:"column"}}>
+       <Breadcrumb.Item><Link to="/AboutUs" style={{textDecoration: "none", color: "white", paddingButtom: "10px",fontFamily:"poppins" }}>
       About
+      
       </Link>
-      <Link to="/ContactUs" style={{textDecoration: "none", color: "white",paddingButtom:"10px"}}>
+      </Breadcrumb.Item>
+      <Breadcrumb.Item><Link to="/ContactUs" style={{textDecoration: "none", color: "white",paddingButtom:"10px",fontFamily:"poppins"}}>
        Contact
       </Link>
+      </Breadcrumb.Item>
      
-      <Link to="/Login" style={{textDecoration: "none", color: "white", paddingButtom:10}}>
+     <Breadcrumb.Item><Link to="/Login" style={{textDecoration: "none", color: "white", paddingButtom:10,fontFamily:"poppins"}}>
             Login
           </Link>
-          <Link to="/Register" style={{textDecoration: "none", color: "white", marginButtom:10}}>
+          </Breadcrumb.Item>
+          <Breadcrumb.Item> <Link to="/Register" style={{textDecoration: "none", color: "white", marginButtom:10,fontFamily:"poppins"}}>
    SignUp
            
           </Link>
+          </Breadcrumb.Item>
+          </Breadcrumb>
       
       </>
       
@@ -213,7 +218,7 @@ let user = JSON.parse(localStorage.getItem('user-info'));
  
           <Nav>
   {localStorage.getItem('user-info') &&
-    <NavDropdown  style={{marginTop:"5px"}}title={user && user.username}>
+    <NavDropdown  style={{fontFamily:"poppins"}}title={user && user.username}>
       <NavDropdown.Item onClick={logOut}>Logout</NavDropdown.Item>
     </NavDropdown>
   }
