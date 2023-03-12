@@ -44,7 +44,7 @@ function redirect(){
 
     return (
 
-        <div style={{ display: "flex", height: "100vh", alignItems: "center", justifyContent: "center", backgroundColor: "#F0F8FF" }}>
+        <div style={{ display: "flex",marginTop:50, alignItems: "center", justifyContent: "center", backgroundColor: "white" }}>
         <div style={{ display: "flex", flexDirection: "column", alignItems: "center", backgroundColor: "white", boxShadow: "2px 2px 10px lightgray", padding: 50 }}>
         <h1 style={{fontFamily:"poppins" ,fontWeight:"bold"}}>Register Page</h1><br></br>
           <input

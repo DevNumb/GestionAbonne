@@ -29,6 +29,7 @@ function App() {
                 <meta name="Gestion" content="test" />
             </Helmet>
     <>
+    
     <Header />  
     
       
@@ -102,9 +103,11 @@ function App() {
 
       
       </Routes>
- <Footer/>
-    </>
-    
+ 
+   <div style={{position:'relative',minHeight: '100vh'}}>
+    <Footer/>
+</div>
+</>
     </BrowserRouter>
   );
 }

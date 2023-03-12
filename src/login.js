@@ -41,10 +41,10 @@ function redirect (){
 
       <div style={{
         display: "flex",
-        minHeight: "100vh",
         alignItems: "center",
+        marginTop:"100px",
         justifyContent: "center",
-        backgroundColor: "#F0F8FF",
+        backgroundColor: "white",
         padding: "2rem",
         boxSizing: "border-box"
       }}>
