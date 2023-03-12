@@ -17,6 +17,7 @@ import AboutUs from './AboutUs';
 import ContactUs from './ContactUs';
 import {Helmet} from "react-helmet";
 import Promotion from './Promotion';
+import Footer from './Footer';
 function App() {
   return (
   
@@ -29,6 +30,7 @@ function App() {
             </Helmet>
     <>
     <Header />  
+    
       
     <Routes>
    
@@ -100,7 +102,7 @@ function App() {
 
       
       </Routes>
- 
+ <Footer/>
     </>
     
     </BrowserRouter>
