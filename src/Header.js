@@ -46,7 +46,7 @@ let user = JSON.parse(localStorage.getItem('user-info'));
   </>
   : 
   <>
-  <Navbar.Brand href="#"style ={{fontFamily:"Poppins"}} ><img src={people} alt="error" width="40" height="40" style={{marginRight:30}}></img>Home</Navbar.Brand>
+  <Navbar.Brand href="#"style ={{fontFamily:"Poppins"}} ><img src={people} alt="error" width="40" height="40" style={{marginRight:30}}></img> </Navbar.Brand>
  
   </>
   
@@ -166,18 +166,24 @@ let user = JSON.parse(localStorage.getItem('user-info'));
       
       <>
       <div style ={{marginLeft: "60vw"}}>
+      <Link to="/ContactUs" style={{textDecoration: "none", color: "white",fontSize:'1rem',marginRight:30,marginTop:1,fontFamily:"Poppins"}}>
+       Home
+      </Link>
           <Link to="/AboutUs" style={{textDecoration: "none", color: "white",fontSize:'1rem' ,marginTop:1,fontFamily:"Poppins" }}>
       About
       </Link>
       <Link to="/ContactUs" style={{textDecoration: "none", color: "white",fontSize:'1rem',paddingLeft:30,position:'absolute',marginTop:1,fontFamily:"Poppins"}}>
        Contact
       </Link>
+    
       </div>
     
       </>
       :
       <>
       <Breadcrumb style={{display:'flex',flexDirection:"column"}}>
+    
+    
        <Breadcrumb.Item><Link to="/AboutUs" style={{textDecoration: "none", color: "white", paddingButtom: "10px",fontFamily:"poppins" }}>
       About
       
