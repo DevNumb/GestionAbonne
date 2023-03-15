@@ -1,6 +1,6 @@
 
 import './App.css';
-import {Button} from 'react-bootstrap';
+import { useState, useEffect } from "react";
 import Header  from './Header';
 import {BrowserRouter ,Route,Routes} from 'react-router-dom';
 import Login from './login';
@@ -18,7 +18,19 @@ import ContactUs from './ContactUs';
 import {Helmet} from "react-helmet";
 import Promotion from './Promotion';
 import Footer from './Footer';
+import Alert from 'react-bootstrap/Alert';
 function App() {
+  const [quote, setQuote] = useState("");
+
+  useEffect(() => {
+    async function fetchData() {
+      const response = await fetch("https://api.quotable.io/random");
+      const data = await response.json();
+      setQuote(data.content);
+    }
+
+    fetchData();
+  }, []);
   return (
   
     <BrowserRouter>
@@ -31,7 +43,15 @@ function App() {
     <>
     
     <Header />  
-    
+    <>
+      {[
+        'primary'
+      ].map((variant) => (
+        <Alert key={variant} variant={variant} sytle={{width:"5px",position:'absolute'}}>
+          {quote}
+        </Alert>
+      ))}
+    </>
       
     <Routes>
    
