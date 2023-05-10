@@ -1,22 +1,22 @@
 import React , {useEffect,useLayoutEffect } from 'react';
 import {useNavigate,Navigate} from 'react-router-dom';
 
-function Protected (props){
-    let Cmp = props.Cmp;
+function ProtectedLogin (props){
+    let Cmp1 = props.Cmp1;
 
     const navigate = useNavigate();
     useEffect(() => {
       const userInfo = JSON.parse(localStorage.getItem('user-info'));
-      if (!userInfo) {
-        navigate('/Register');
+      if (userInfo) {
+        navigate('/');
       }
     }, []);
   
   
    return (
-    <Cmp/>
+    <Cmp1/>
    )
 
 }
 
-export default Protected
+export default ProtectedLogin

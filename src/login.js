@@ -1,16 +1,12 @@
 import React , {useState,useLayoutEffect} from 'react';
+import { useEffect,location } from 'react';
 import {useNavigate} from 'react-router-dom';
 
 function Login(){
   const [email , setEmail]  = useState();
   const [password , setPassword]  = useState();
   const navigate = useNavigate();
-  useLayoutEffect(() => {
-    const userInfo = localStorage.getItem('user-info');
-    if (userInfo) {
-      navigate('/');
-    }
-  }, [navigate]);
+
     async function login(){
       let item ={email,password};
       let result = await fetch ("http://localhost:8000/api/login" ,{
@@ -91,7 +87,7 @@ function redirect (){
           >
             Login
           </button>
-          <button onClick={redirect} style={{textUnderlinePosition:"under", textDecoration:"underline gray",color:"gray",fontFamily:"poppins",border:"none" ,marginTop: 20}}>Nouvelle compte ?</button>
+          <button onClick={redirect} style={{textUnderlinePosition:"under", textDecoration:"underline gray",color:"gray",fontFamily:"poppins",border:"none" ,marginTop: 20}}>New Account ?</button>
         </div>
       </div>
  

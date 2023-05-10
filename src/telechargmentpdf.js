@@ -11,7 +11,7 @@ function telechargmentpdf() {
      <a href ="book.pdf" download ="book.pdf">
     
   
-  <Button class ="pirmary"> Telecharger </Button>
+  <Button class ="pirmary"> Download </Button>
   </a>
   </div>
  );

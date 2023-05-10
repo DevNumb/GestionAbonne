@@ -22,12 +22,13 @@ fetchData1();
   
 
 <div style={{ display: "flex", flexDirection: "column",  backgroundColor: "white", boxShadow: "2px 2px 10px lightgray", padding: 50,margin:50,borderRadius:"6px"}}>
+  <h1>Event</h1>
       <Table striped bordered hover responsive>
       <thead>
         <tr>
           <th>id</th>
           <th>Descirption</th>
-          <th style={{width:100}}>Formlaire</th>
+          <th style={{width:100}}>File</th>
         </tr>
       </thead>
       <tbody>
@@ -35,7 +36,7 @@ fetchData1();
   <tr key={item.id_event}>
     <td>{item.id_event}</td>
     <td>{item.nom_event}</td>
-    <td><a href ={"http://localhost:8000/" + item.Img}  download={item.Img}><Button class="primary">Telechargement</Button> </a></td>
+    <td><a href ={"http://localhost:8000/" + item.Img}  download={item.Img}><Button class="primary">Download</Button> </a></td>
   </tr>
 ))}
       </tbody>

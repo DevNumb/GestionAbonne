@@ -1,6 +1,6 @@
 
 import './App.css';
-import { useState, useEffect } from "react";
+import { useState, useEffect ,useNavigate} from "react";
 import Header  from './Header';
 import {BrowserRouter ,Route,Routes} from 'react-router-dom';
 import Login from './login';
@@ -8,6 +8,7 @@ import Register from './Register';
 import AddUser from './AddUser';
 import Events from './Events';
 import Protected from './Protected';
+import ProtectedLogin from './ProtectedLogin';
 import Historique from './Historique';
 import telechargmentpdf from './telechargmentpdf';
 import Conventions from './conventions';
@@ -19,8 +20,11 @@ import {Helmet} from "react-helmet";
 import Promotion from './Promotion';
 import Footer from './Footer';
 import Alert from 'react-bootstrap/Alert';
+import { CloseButton } from 'react-bootstrap';
+
 function App() {
   const [quote, setQuote] = useState("");
+ 
 
   useEffect(() => {
     async function fetchData() {
@@ -44,24 +48,37 @@ function App() {
     
     <Header />  
     <>
+    <div style ={{marginTop:"5px",width:"300px",marginLeft:"5px"}}>
+      
       {[
         'primary'
       ].map((variant) => (
+
         <Alert key={variant} variant={variant} sytle={{width:"5px",position:'absolute'}}>
+          <CloseButton/>
           {quote}
         </Alert>
       ))}
+      </div>
     </>
-      
     <Routes>
    
-          <Route path="/Login" element={<Login/>} />
-          <Route path="/Register" element={<Register/>} />
+        <Route path="/Login" element={
+        <>
+        <ProtectedLogin Cmp1 ={Login}/>
+        { /*<Login/>}*/ }
+        </>  
+         } /> 
+          <Route path="/Register" element={ <>
+        <ProtectedLogin Cmp1 ={Register}/>
+        { /*<Register/>}*/ }
+        </>  
+         } />
           <Route path="/AboutUs" element={<AboutUs/>} />
           <Route path="/AboutUs" element={<ContactUs/>} />
           
           <Route path="/GestionUtilisateur" element={
-            <>
+             <>
           <Protected Cmp={AddUser}/>
           {/*<AddUser/>*/}
           </>

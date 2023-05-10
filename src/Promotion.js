@@ -51,7 +51,7 @@ function Promotion(){
             
         <div style={{ display: "flex", flexDirection: "column",  backgroundColor: "white", boxShadow: "2px 2px 10px lightgray", padding: 50,margin:50,borderRadius:"6px"}}>
             <h1  style={{  marginBottom: 20
-                }}>Ajouter Offers</h1>
+                }}>Add Offers</h1>
          <input type="text"   style={{
                   height: 40,
                   borderRadius: 10,
@@ -82,11 +82,11 @@ function Promotion(){
         <td>{item.nom_promo}</td>
         <td style={{display:"flex" , flexDirection:"row",justifyContent:"space-between"}}>
           <a href ={"http://localhost:8000/" + item.promo_img}  download={item.Promo_img} >
-            <Button class="primary" style={{marginRight:"5px"}}  >Telechargement</Button> </a> 
-           
+            <Button class="primary" style={{marginRight:"5px"}}  >Download</Button> </a> 
             </td>
+            
             <td>
-            <Button variant="danger"  onClick={() => delPromo(item.id_promo)} >Supprimer</Button>   
+            <Button variant="danger"  onClick={() => delPromo(item.id_promo)} >delete</Button>   
     
             </td>
       </tr>

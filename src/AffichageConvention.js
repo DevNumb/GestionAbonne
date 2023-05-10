@@ -22,11 +22,12 @@ function AffichageConvention(){
     },[])
  return (
     <div style={{ display: "flex", flexDirection: "column",  backgroundColor: "white", boxShadow: "2px 2px 10px lightgray", padding: 50,margin:50,borderRadius:"6px"}}>
+      <h1>Conventions</h1>
     <Table striped bordered hover responsive >
         <thead>
           <tr>
             <th>id</th>
-            <th>nom</th>
+            <th>name</th>
 
             <th colSpan={2}>description</th>
           </tr>

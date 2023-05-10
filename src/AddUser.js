@@ -109,6 +109,7 @@ function handleButtonClick2 (data) {
                 <th>id</th>
                 <th>Users</th>
                 <th>option</th>
+                <th>role</th>
               </tr>
             </thead>
             <tbody>
@@ -120,8 +121,9 @@ function handleButtonClick2 (data) {
                 <div style={{display:"flex" , flexDirection:Row,justifyContent:"space-between"}}>
                 <Button onClick={() => handleButtonClick(item.id)} variant="primary" style={{margin:5}}>Admin</Button>
                 <Button onClick={() => handleButtonClick1(item.id)} variant="secondary" style={{margin:5}}>Utilisateur</Button>
-                <Button variant="danger" onClick={()=> handleButtonClick2(item) }  style={{margin:5}}> Supprimer </Button>
+                <Button variant="danger" onClick={()=> handleButtonClick2(item) }  style={{margin:5}}> delete</Button>
               </div>
+              <td>{item.options}</td>
               </tr>
 
               )

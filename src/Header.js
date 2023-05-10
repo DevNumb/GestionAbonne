@@ -64,12 +64,12 @@ let user = JSON.parse(localStorage.getItem('user-info'));
       {matches =>{
         return matches ?
       <>
-        <Link to="/GestionUtilisateur" style={{textDecoration: "none", color: "white", margin: "20px",fontFamily:"poppins"}}>GestionUtilisateur</Link>
-        <Link to="/Evenement" style={{textDecoration: "none", color: "white", margin: "20px",fontFamily:"poppins"}}>Evenement</Link>
-        <Link to="/Historique" style={{textDecoration: "none", color: "white", margin: "20px",fontFamily:"poppins"}}>Historique</Link>
-        <Link to="/telechargmentpdf" style={{textDecoration: "none", color: "white", margin: "20px",fontFamily:"poppins"}}>telechargmentpdf</Link>
+        <Link to="/GestionUtilisateur" style={{textDecoration: "none", color: "white", margin: "20px",fontFamily:"poppins"}}>UserManagement</Link>
+        <Link to="/Evenement" style={{textDecoration: "none", color: "white", margin: "20px",fontFamily:"poppins"}}>Event</Link>
+        <Link to="/Historique" style={{textDecoration: "none", color: "white", margin: "20px",fontFamily:"poppins"}}>History</Link>
+        <Link to="/telechargmentpdf" style={{textDecoration: "none", color: "white", margin: "20px",fontFamily:"poppins"}}>Downloadpdf</Link>
         <Link to="/conventions" style={{textDecoration: "none", color: "white", margin: "20px",fontFamily:"poppins"}}>conventions</Link>
-        <Link to="/Promotion" style={{textDecoration: "none", color: "white", margin: "20px",fontFamily:"poppins"}}>Promotion</Link>
+        <Link to="/Promotion" style={{textDecoration: "none", color: "white", margin: "20px",fontFamily:"poppins"}}>Offers</Link>
         <div style={{ position: 'relative',marginTop:"11px"}}  >
         <Row>
     
@@ -91,9 +91,9 @@ let user = JSON.parse(localStorage.getItem('user-info'));
             className="rounded me-2"
             alt=""
           />
-          <strong className="me-auto">Evenement</strong>
+          <strong className="me-auto">Events</strong>
         </Toast.Header>
-        <Toast.Body>Nouvelle evenement</Toast.Body>
+        <Toast.Body>New event</Toast.Body>
       </Toast>
       </div>
     </Col>
@@ -106,7 +106,7 @@ let user = JSON.parse(localStorage.getItem('user-info'));
       <>
       <Link to="/GestionUtilisateur" style={{textDecoration: "none", color: "white",padding:10,fontFamily:"poppins"}}>GestionUtilisateur</Link>
       <Link to="/Evenement" style={{textDecoration: "none", color: "white",padding:10,fontFamily:"poppins"}}>Evenement</Link>
-      <Link to="/Historique" style={{textDecoration: "none", color: "white", padding:10,fontFamily:"poppins"}}>Historique</Link>
+      <Link to="/Historique" style={{textDecoration: "none", color: "white", padding:10,fontFamily:"poppins"}}>History</Link>
       <Link to="/telechargmentpdf" style={{textDecoration: "none", color: "white", padding:10,fontFamily:"poppins"}}>telechargmentpdf</Link>
       <Link to="/conventions" style={{textDecoration: "none", color: "white", padding:10,fontFamily:"poppins"}}>conventions</Link>
       <div style={{ position: 'relative',marginTop:"20px"}}  >
@@ -128,8 +128,8 @@ let user = JSON.parse(localStorage.getItem('user-info'));
         return matches ?
       <>
     
-        <Link to="/AffichageEvent" style={{textDecoration: "none", color: "white" , marginLeft: "30px",marginTop:"3px",fontFamily:"poppins"}}>AffichageEvent</Link>
-        <Link to="/AffichageConvention" style={{textDecoration: "none", color: "white", marginLeft: "30px",marginTop:"3px",fontFamily:"poppins"}}>AffichageConventions</Link>
+        <Link to="/AffichageEvent" style={{textDecoration: "none", color: "white" , marginLeft: "30px",marginTop:"3px",fontFamily:"poppins"}}>Events</Link>
+        <Link to="/AffichageConvention" style={{textDecoration: "none", color: "white", marginLeft: "30px",marginTop:"3px",fontFamily:"poppins"}}>Conventions</Link>
         <div style={{ position: 'relative',marginLeft:"30px",marginTop:"0px"}}  >
         <button style={{ border: 'none', background: 'none' }} onClick={handleClick}>
      {showComponent && <GrStatusGoodSmall style ={{color:"red",position: 'absolute',
@@ -142,8 +142,8 @@ let user = JSON.parse(localStorage.getItem('user-info'));
       </>
       :
       <>
-        <Link to="/AffichageEvent" style={{textDecoration: "none", color: "white", marginTop: "15px",fontFamily:"poppins"}}>AffichageEvent</Link>
-        <Link to="/AffichageConvention" style={{textDecoration: "none", color: "white", marginTop: "15px",fontFamily:"poppins"}}>AffichageConventions</Link>
+        <Link to="/AffichageEvent" style={{textDecoration: "none", color: "white", marginTop: "15px",fontFamily:"poppins"}}>Events</Link>
+        <Link to="/AffichageConvention" style={{textDecoration: "none", color: "white", marginTop: "15px",fontFamily:"poppins"}}>Conventions</Link>
         <div style={{ position: 'relative',marginTop:"10px"}}  >
         <button style={{ border: 'none', background: 'none' }} onClick={handleClick}>
      {showComponent && <GrStatusGoodSmall style ={{color:"red",position: 'absolute',
