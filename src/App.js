@@ -24,7 +24,11 @@ import { CloseButton } from 'react-bootstrap';
 
 function App() {
   const [quote, setQuote] = useState("");
- 
+  const [showAlert, setShowAlert] = useState(true);
+
+  const handleCloseAlert = () => {
+    setShowAlert(false);
+  };
 
   useEffect(() => {
     async function fetchData() {
@@ -45,21 +49,18 @@ function App() {
                 <meta name="Gestion" content="test" />
             </Helmet>
     <>
-    
+   
+
     <Header />  
     <>
-    <div style ={{marginTop:"5px",width:"300px",marginLeft:"5px"}}>
-      
-      {[
-        'primary'
-      ].map((variant) => (
-
-        <Alert key={variant} variant={variant} sytle={{width:"5px",position:'absolute'}}>
-          <CloseButton/>
-          {quote}
-        </Alert>
-      ))}
-      </div>
+    {showAlert && (
+    <div style={{ position: "fixed", top: 100, left: 0, right: 0, zIndex: 1 }}>
+      <Alert variant="primary" style={{ width: "40%", position: "absolute" }}>
+        <CloseButton onClick={handleCloseAlert} />
+        {quote}
+      </Alert>
+    </div>
+    )}
     </>
     <Routes>
    
@@ -140,6 +141,7 @@ function App() {
 
       
       </Routes>
+      
  
    <div style={{position:'relative',minHeight: '100vh'}}>
     <Footer/>

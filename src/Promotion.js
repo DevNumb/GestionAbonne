@@ -18,12 +18,15 @@ function Promotion(){
     
     const [nom_promo,setNom_promo] = useState();
     const [file,setFile] = useState();
-    
+    const [dated,setDated] = useState();
+    const [datef,setDatf] = useState();
     
     async function addEvents(){
     const formData = new FormData();
     formData.append('nom_promo',nom_promo);
     formData.append('file',file);
+    formData.append ('date_deb',dated);
+    formData.append ('date_fin',datef);
     let result = await fetch("http://localhost:8000/api/addPromo",{
     method: 'post',
     body: formData
@@ -58,8 +61,24 @@ function Promotion(){
                   border: "1px solid lightgray",
                   padding: 10,
                   marginBottom: 20,
-                }} onChange={(e)=>setNom_promo(e.target.value)}></input>
+                }} onChange={(e)=>setNom_promo(e.target.value)} placeholder='Descirption'></input>
                 <input type="file" name ="file" className="form-control" placeholder="file" style={{marginBottom: 20}} onChange={(e)=>setFile(e.target.files[0])}></input> 
+                From:
+                <input type="date"   style={{
+                  height: 40,
+                  borderRadius: 10,
+                  border: "1px solid lightgray",
+                  padding: 10,
+                  marginBottom: 20,
+                }} onChange={(e)=>setDated(e.target.value)}></input>
+                to:
+                <input type="date"   style={{
+                  height: 40,
+                  borderRadius: 10,
+                  border: "1px solid lightgray",
+                  padding: 10,
+                  marginBottom: 20,
+                }} onChange={(e)=>setDatf(e.target.value)}></input>
          <Button variant="primary" type="submit" style={{  flex: 0,width:"80px",
                   marginBottom: 10}} onClick={addEvents}>
             Submit
@@ -73,6 +92,8 @@ function Promotion(){
               <th>Descirption</th>
               <th >Pdf</th>
               <th style={{width:100}}>options</th>
+              <th >StartingDate</th>
+              <th>EndingDate</th>
             </tr>
           </thead>
           <tbody>
@@ -89,6 +110,8 @@ function Promotion(){
             <Button variant="danger"  onClick={() => delPromo(item.id_promo)} >delete</Button>   
     
             </td>
+            <td>{item.date_deb}</td>
+            <td>{item.date_fin}</td>
       </tr>
     ))}
           </tbody>
