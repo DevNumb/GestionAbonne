@@ -20,32 +20,36 @@ fetchData();
   const [nom_con,setNom_con] = useState();
   const [description,setDescription] = useState();
   const [datee,setDatee] = useState();
-  const handleShow = () => setShow(true);
+  const [idCon,setIdCon] = useState();
+  const handleShow = (id_con) => {
+    setIdCon(id_con); // set the id_con state with the parameter value
+    setShow(true);
+  };
+  
 
 
   const [show, setShow] = useState(false);
-const [up,setUp] = useState();
   const handleClose = () => setShow(false);
   async function UpdateConv(id){
-    console.log(id);
-    const formData = new FormData();
-    formData.append('Nom_con',nom_con);
-    formData.append('description' , description);
-    formData.append ('date',datee);
-  console.log (nom_con);
-  console.log(description);
-  console.log (id);
     try {
-      let result = await fetch('http://localhost:8000/api/updateCon/' + id, {
-        method: 'put',
-        body: formData
+      const data = {
+        Nom_con: nom_con,
+        description: description,
+        date: datee
+      };
+      const result = await fetch(`http://localhost:8000/api/updateCon/${id}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
       });
-      result = await result.json();
-      console.log(result); // Check API response
+      console.log(result);
       fetchData(); // Refetch data to update view
     } catch (error) {
       console.error(error);
     }
+  
   }
     
   async function addConv(){
@@ -111,7 +115,7 @@ fetchData();
             Close
           </Button>
           <Button variant="primary" onClick={() => {
-          handleClose()
+         UpdateConv(idCon); handleClose();
           } }>
             Save Changes
           </Button>
@@ -174,8 +178,12 @@ fetchData();
                       <Button variant="danger" onClick={() => delCons(item.id_con)}>delete</Button>
 
 
-                      <Button variant="success" onClick={handleShow}>
-                        edit</Button>
+                      
+        <Button variant="success" onClick={() => {
+          handleShow(item.id_con);
+        }}>
+          edit
+        </Button>
 
 
                     </div>
