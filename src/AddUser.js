@@ -61,10 +61,10 @@ const handleButtonClick1 = id => {
 function handleButtonClick2 (data) {
   
   async function deleteItem() {
-    let item = {id: data.id};
+
     let result = await fetch("http://localhost:8000/api/del", {
       method: 'POST',
-      body: JSON.stringify(item),
+      body: JSON.stringify(data),
       headers: {
         "Content-Type": 'application/json',
         "Accept": 'application/json'
@@ -87,8 +87,9 @@ function handleButtonClick2 (data) {
     result = await result.json();
     
   }
- deleteItem();
+  deleteItem(); 
   uploadUser();
+
   fetchData(); 
   let user = JSON.parse(localStorage.getItem('user-info'));
   if (user.username == data.username){

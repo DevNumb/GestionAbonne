@@ -145,6 +145,7 @@ let result2 = await fetch ("http://localhost:8000/api/sends");
                 </td>
                 <td>
                   <Button variant="danger" onClick={() => delEvents(item.id_event)}>Delete</Button>
+                  
 
                 </td>
                 <td style={{ width: 300 }}>{item.date_db}</td>
@@ -173,9 +174,11 @@ let result2 = await fetch ("http://localhost:8000/api/sends");
                     <Button class="primary" style={{ marginRight: "5px" }}>Download</Button> </a>
 
                 </td>
-                <td>
-                  <Button variant="danger" onClick={() => delEvents(item.id_event)}>Delete</Button>
-
+                <td >
+                  <div style={{ display: "flex", flexDirection: "row", justifyContent: "space-between" }}>
+                  <Button variant="danger" onClick={() => delEvents(item.id_event)} style={{marginRight:10}}>Delete</Button>
+                  <Button variant="success" >Edit</Button>
+                  </div>
                 </td>
                 <td>{item.date_db}</td>
                 <td>{item.Type}</td>

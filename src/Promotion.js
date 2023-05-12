@@ -111,8 +111,10 @@ function Promotion(){
                       </td>
 
                       <td>
-                        <Button variant="danger" onClick={() => delPromo(item.id_promo)}>delete</Button>
-
+                        <div style={{ display: "flex", flexDirection: "row", justifyContent: "space-between" }}>
+                        <Button variant="danger" onClick={() => delPromo(item.id_promo)} style ={{marginRight:10}}>delete</Button>
+                        <Button variant="success"  >edit</Button>
+                        </div>
                       </td>
                       <td>{item.date_deb}</td>
                       <td>{item.date_fin}</td>
