@@ -119,11 +119,11 @@ function handleButtonClick2 (data) {
                 <td>{item.id }</td>
                 <td>{item.username}</td>
                 <div style={{display:"flex" , flexDirection:Row,justifyContent:"space-between"}}>
-                <Button onClick={() => handleButtonClick(item.id)} variant="primary" style={{margin:5}}>Admin</Button>
-                <Button onClick={() => handleButtonClick1(item.id)} variant="secondary" style={{margin:5}}>Utilisateur</Button>
-                <Button variant="danger" onClick={()=> handleButtonClick2(item) }  style={{margin:5}}> delete</Button>
+                <Button onClick={() => handleButtonClick(item.id)} variant="primary" style={{margin:5,fontFamily:"poppins"}}>Admin</Button>
+                <Button onClick={() => handleButtonClick1(item.id)} variant="secondary" style={{margin:5,fontFamily:"poppins"}}>Utilisateur</Button>
+                <Button variant="danger" onClick={()=> handleButtonClick2(item) }  style={{margin:5,fontFamily:"poppins"}}> delete</Button>
               </div>
-              <td>{item.options}</td>
+              <td style={{fontFamily:"poppins"}}>{item.options}</td>
               </tr>
 
               )

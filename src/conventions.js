@@ -121,7 +121,8 @@ fetchData();
           </Button>
         </Modal.Footer>
 
-      </Modal><div style={{ display: "flex", flexDirection: "column", backgroundColor: "white", boxShadow: "2px 2px 10px lightgray", padding: 50, margin: 50, borderRadius: "6px" }}>
+      </Modal>
+      <div style={{ display: "flex", flexDirection: "column", backgroundColor: "white", boxShadow: "2px 2px 10px lightgray", padding: 50, margin: 50, borderRadius: "6px" }}>
 
           <h1 style={{
             marginBottom: 20
@@ -155,6 +156,9 @@ fetchData();
           }} onClick={addConv}>
             Submit
           </Button>
+
+          </div>
+          <div style={{ display: "flex", flexDirection: "column", backgroundColor: "white", boxShadow: "2px 2px 10px lightgray", padding: 50, margin: 50, borderRadius: "6px" }}>
           <Table striped bordered hover responsive>
             <thead>
               <tr>

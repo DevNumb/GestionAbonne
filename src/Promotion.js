@@ -52,71 +52,75 @@ function Promotion(){
     
         return (
             
-        <div style={{ display: "flex", flexDirection: "column",  backgroundColor: "white", boxShadow: "2px 2px 10px lightgray", padding: 50,margin:50,borderRadius:"6px"}}>
-            <h1  style={{  marginBottom: 20
-                }}>Add Offers</h1>
-         <input type="text"   style={{
-                  height: 40,
-                  borderRadius: 10,
-                  border: "1px solid lightgray",
-                  padding: 10,
-                  marginBottom: 20,
-                }} onChange={(e)=>setNom_promo(e.target.value)} placeholder='Descirption'></input>
-                <input type="file" name ="file" className="form-control" placeholder="file" style={{marginBottom: 20}} onChange={(e)=>setFile(e.target.files[0])}></input> 
-                From:
-                <input type="date"   style={{
-                  height: 40,
-                  borderRadius: 10,
-                  border: "1px solid lightgray",
-                  padding: 10,
-                  marginBottom: 20,
-                }} onChange={(e)=>setDated(e.target.value)}></input>
-                to:
-                <input type="date"   style={{
-                  height: 40,
-                  borderRadius: 10,
-                  border: "1px solid lightgray",
-                  padding: 10,
-                  marginBottom: 20,
-                }} onChange={(e)=>setDatf(e.target.value)}></input>
-         <Button variant="primary" type="submit" style={{  flex: 0,width:"80px",
-                  marginBottom: 10}} onClick={addEvents}>
-            Submit
-          </Button>
-    
-    
-          <Table striped bordered hover responsive>
-          <thead>
-            <tr>
-              <th>id</th>
-              <th>Descirption</th>
-              <th >Pdf</th>
-              <th style={{width:100}}>options</th>
-              <th >StartingDate</th>
-              <th>EndingDate</th>
-            </tr>
-          </thead>
-          <tbody>
-          {data1.map((item) => (
-      <tr key={item.id_promo}>
-        <td>{item.id_promo}</td>
-        <td>{item.nom_promo}</td>
-        <td style={{display:"flex" , flexDirection:"row",justifyContent:"space-between"}}>
-          <a href ={"http://localhost:8000/" + item.promo_img}  download={item.Promo_img} >
-            <Button class="primary" style={{marginRight:"5px"}}  >Download</Button> </a> 
-            </td>
+        <><div style={{ display: "flex", flexDirection: "column", backgroundColor: "white", boxShadow: "2px 2px 10px lightgray", padding: 50, margin: 50, borderRadius: "6px" }}>
+            <h1 style={{
+              marginBottom: 20
+            }}>Add Offers</h1>
+            <input type="text" style={{
+              height: 40,
+              borderRadius: 10,
+              border: "1px solid lightgray",
+              padding: 10,
+              marginBottom: 20,
+            }} onChange={(e) => setNom_promo(e.target.value)} placeholder='Descirption'></input>
+            <input type="file" name="file" className="form-control" placeholder="file" style={{ marginBottom: 20 }} onChange={(e) => setFile(e.target.files[0])}></input>
+            From:
+            <input type="date" style={{
+              height: 40,
+              borderRadius: 10,
+              border: "1px solid lightgray",
+              padding: 10,
+              marginBottom: 20,
+            }} onChange={(e) => setDated(e.target.value)}></input>
+            to:
+            <input type="date" style={{
+              height: 40,
+              borderRadius: 10,
+              border: "1px solid lightgray",
+              padding: 10,
+              marginBottom: 20,
+            }} onChange={(e) => setDatf(e.target.value)}></input>
+            <Button variant="primary" type="submit" style={{
+              flex: 0, width: "80px",
+              marginBottom: 10
+            }} onClick={addEvents}>
+              Submit
+            </Button>
+
+          </div><div style={{ display: "flex", flexDirection: "column", backgroundColor: "white", boxShadow: "2px 2px 10px lightgray", padding: 50, margin: 50, borderRadius: "6px" }}>
             
-            <td>
-            <Button variant="danger"  onClick={() => delPromo(item.id_promo)} >delete</Button>   
-    
-            </td>
-            <td>{item.date_deb}</td>
-            <td>{item.date_fin}</td>
-      </tr>
-    ))}
-          </tbody>
-        </Table>
-        </div>
+              <Table striped bordered hover responsive>
+                <thead>
+                  <tr>
+                    <th>id</th>
+                    <th>Descirption</th>
+                    <th>Pdf</th>
+                    <th style={{ width: 100 }}>options</th>
+                    <th>StartingDate</th>
+                    <th>EndingDate</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {data1.map((item) => (
+                    <tr key={item.id_promo}>
+                      <td>{item.id_promo}</td>
+                      <td>{item.nom_promo}</td>
+                      <td style={{ display: "flex", flexDirection: "row", justifyContent: "space-between" }}>
+                        <a href={"http://localhost:8000/" + item.promo_img} download={item.Promo_img}>
+                          <Button class="primary" style={{ marginRight: "5px" }}>Download</Button> </a>
+                      </td>
+
+                      <td>
+                        <Button variant="danger" onClick={() => delPromo(item.id_promo)}>delete</Button>
+
+                      </td>
+                      <td>{item.date_deb}</td>
+                      <td>{item.date_fin}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </Table>
+            </div></>
           
     
       );

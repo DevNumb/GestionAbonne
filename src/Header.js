@@ -84,7 +84,7 @@ let user = JSON.parse(localStorage.getItem('user-info'));
       </Button>
   </button>
     <div style={{width:200}}>
-      <Toast onClose={toggleShowB} show={showB} animation={false}  style={{ position: 'absolute' }}>
+      <Toast onClose={toggleShowB} show={showB} animation={false}  style={{ position: 'absolute',zIndex:1 }}>
         <Toast.Header>
           <img
             src="holder.js/20x20?text=%20"
@@ -93,7 +93,7 @@ let user = JSON.parse(localStorage.getItem('user-info'));
           />
           <strong className="me-auto">Events</strong>
         </Toast.Header>
-        <Toast.Body>New event</Toast.Body>
+        <Toast.Body >New event</Toast.Body>
       </Toast>
       </div>
     </Col>
