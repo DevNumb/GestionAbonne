@@ -107,7 +107,7 @@ let user = JSON.parse(localStorage.getItem('user-info'));
       <Link to="/GestionUtilisateur" style={{textDecoration: "none", color: "white",padding:10,fontFamily:"poppins"}}>GestionUtilisateur</Link>
       <Link to="/Evenement" style={{textDecoration: "none", color: "white",padding:10,fontFamily:"poppins"}}>Evenement</Link>
       <Link to="/Historique" style={{textDecoration: "none", color: "white", padding:10,fontFamily:"poppins"}}>History</Link>
-      <Link to="/telechargmentpdf" style={{textDecoration: "none", color: "white", padding:10,fontFamily:"poppins"}}>telechargmentpdf</Link>
+      <Link to="/Promotion" style={{textDecoration: "none", color: "white", padding:10,fontFamily:"poppins"}}>offer</Link>
       <Link to="/conventions" style={{textDecoration: "none", color: "white", padding:10,fontFamily:"poppins"}}>conventions</Link>
       <div style={{ position: 'relative',marginTop:"20px"}}  >
         <button style={{ border: 'none', background: 'none' }} onClick={handleClick}>

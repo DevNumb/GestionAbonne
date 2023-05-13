@@ -1,15 +1,47 @@
 import {Button,Table}from 'react-bootstrap';
 import {useState,useEffect} from 'react';
+import Modal from 'react-bootstrap/Modal';
 
 function Promotion(){
   const [data1 , setData1] = useState([]);
+  const [idpromo,setIdpromo] = useState();
     async function fetchData1(){
         let result = await fetch ("http://localhost:8000/api/listPromo");
        result = await result.json();
       setData1(result);
       } 
+      const handleShow = (id_promo) => {
+        setIdpromo(id_promo); // set the id_con state with the parameter value
+        setShow(true);
+      };
     
-   
+      const [show, setShow] = useState(false);
+      const handleClose = () => setShow(false);
+      async function UpdatePromo(id){
+        try {
+          const data = {
+            nom_promo: nom_promo,
+            file: file,
+            date_deb: dated,
+            date_fin: datef
+          };
+          
+          let jsonData = JSON.stringify(data);
+          
+          const result = await fetch(`http://localhost:8000/api/UpdatePromo/${id}`, {
+            method: 'PUT',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: jsonData
+          });
+          console.log(result);
+          fetchData1(); // Refetch data to update view
+        } catch (error) {
+          console.error(error);
+        }
+      
+      }
       useEffect ( ()=> {
      
     fetchData1();
@@ -51,8 +83,57 @@ function Promotion(){
     
     
         return (
+          
             
-        <><div style={{ display: "flex", flexDirection: "column", backgroundColor: "white", boxShadow: "2px 2px 10px lightgray", padding: 50, margin: 50, borderRadius: "6px" }}>
+        <>
+        <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Conventions</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>     
+          
+        <div style ={{display:"flex" , flexDirection:"column"}}>
+           <input type="text" style={{
+              height: 40,
+              borderRadius: 10,
+              border: "1px solid lightgray",
+              padding: 10,
+              marginBottom: 20,
+            }} onChange={(e) => setNom_promo(e.target.value)} placeholder='Descirption'></input>
+            <input type="file" name="file" className="form-control" placeholder="file" style={{ marginBottom: 20 }} onChange={(e) => setFile(e.target.files[0])}></input>
+            From:
+            <input type="date" style={{
+              height: 40,
+              borderRadius: 10,
+              border: "1px solid lightgray",
+              padding: 10,
+              marginBottom: 20,
+            }} onChange={(e) => setDated(e.target.value)}></input>
+            to:
+            <input type="date" style={{
+              height: 40,
+              borderRadius: 10,
+              border: "1px solid lightgray",
+              padding: 10,
+              marginBottom: 20,
+            }} onChange={(e) => setDatf(e.target.value)}></input>
+            </div>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            Close
+          </Button>
+          <Button variant="primary" onClick={() => {
+         UpdatePromo(idpromo); handleClose();
+          } }>
+            Save Changes
+          </Button>
+        </Modal.Footer>
+
+      </Modal>
+        
+        
+        <div style={{ display: "flex", flexDirection: "column", backgroundColor: "white", boxShadow: "2px 2px 10px lightgray", padding: 50, margin: 50, borderRadius: "6px" }}>
             <h1 style={{
               marginBottom: 20
             }}>Add Offers</h1>
@@ -113,7 +194,7 @@ function Promotion(){
                       <td>
                         <div style={{ display: "flex", flexDirection: "row", justifyContent: "space-between" }}>
                         <Button variant="danger" onClick={() => delPromo(item.id_promo)} style ={{marginRight:10}}>delete</Button>
-                        <Button variant="success"  >edit</Button>
+                        <Button variant="success" onClick={()=> handleShow(item.id_promo)} >edit</Button>
                         </div>
                       </td>
                       <td>{item.date_deb}</td>
