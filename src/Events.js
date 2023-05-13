@@ -4,6 +4,7 @@ import {AiOutlineSearch} from 'react-icons/ai';
 import Modal from 'react-bootstrap/Modal';
 
 function Events(){
+  
 
   async function fetchData1(){
     let result = await fetch ("http://localhost:8000/api/listEvent");
@@ -79,11 +80,14 @@ async function UpdateEvent(id){
     });
     console.log(response);
     console.log(jsonData);
-    fetchData1(); 
+    
+  
+    
   } catch (error) {
     console.error(error);
   }
 }
+
 
 
 
