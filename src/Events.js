@@ -248,9 +248,10 @@ let result2 = await fetch ("http://localhost:8000/api/sends");
 
                   </td>
                   <td>
-                    <Button variant="danger" onClick={() => delEvents(item.id_event)}>Delete</Button>
-
-
+                  <div style={{ display: "flex", flexDirection: "row" }}>
+                    <Button variant="danger" onClick={() => delEvents(item.id_event)} style={{marginRight:10}}>Delete</Button>
+                    <Button variant="success"  onClick={() => handleShow(item.id_event)}>Edit</Button>
+</div>
                   </td>
                   <td style={{ width: 300 }}>{item.date_db}</td>
                   <td>{item.Type}</td>
