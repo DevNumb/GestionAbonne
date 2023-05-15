@@ -5,15 +5,60 @@ import Modal from 'react-bootstrap/Modal';
 
 function Events(){
   
-
+  const [nom_event,setNom_event] = useState();
+  const [file,setFile] = useState();
+  const [type,setType] = useState();
+  const [dat,setDat] = useState();
+  const [datf,setDatf] = useState();
+  const [eventid , setEventid] = useState();
+  const handleShow = (id_event) => {
+    setEventid(id_event);
+  setShow(true);
+  };
+  const handleClose = () => setShow(false);
+  const [show, setShow] = useState(false);
   async function fetchData1(){
     let result = await fetch ("http://localhost:8000/api/listEvent");
    result = await result.json();
   setData1(result);
   } 
-
+  async function fetchData2(){
+    let result = await fetch ("http://localhost:8000/api/listEvent");
+   result = await result.json();
+  setData1(result);
+  } 
   const [data1 , setData1] = useState([]);
   const [data , setData] = useState([]);
+
+  async function UpdateEvent(id){
+    try {
+      const data2 = {
+        nom_event: nom_event,
+        file: file,
+        date_db: dat,
+        date_df: datf,
+        Type:type,
+      };
+      
+      let jsonData = JSON.stringify(data2);
+      
+      const result = await fetch(`http://localhost:8000/api/UpdateEvent/${id}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: jsonData
+      });
+      console.log(result);
+      fetchData1(); // Refetch data to update view
+    } catch (error) {
+      console.error(error);
+    }
+  }
+  
+
+
+
   useEffect ( ()=> {
  
 fetchData1();
@@ -31,18 +76,7 @@ async function search  (key) {
     window.location.reload();
   }
 };
-const [nom_event,setNom_event] = useState();
-const [file,setFile] = useState();
-const [type,setType] = useState();
-const [dat,setDat] = useState();
-const [datf,setDatf] = useState();
-const [eventid , setEventid] = useState();
-const handleShow = (id_event) => {
-  setEventid(id_event);
-setShow(true);
-};
-const handleClose = () => setShow(false);
-const [show, setShow] = useState(false);
+
 async function delEvents(id){
 
 let result = await fetch ("http://localhost:8000/api/delEvent/" + id , {
@@ -60,33 +94,6 @@ fetchData1();
 
 
 
-async function UpdateEvent(id){
-  try {
-    const data = {
-      Nom_event: nom_event,
-      file: file,
-      date_db: dat,
-      date_df: datf,
-      Type: type,
-    };
-    
-    const jsonData = JSON.stringify(data);
-    const response = await fetch('http://localhost:8000/api/UpdateEvent/'+id , {
-      method: 'PUT',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: jsonData
-    });
-    console.log(response);
-    console.log(jsonData);
-    
-  
-    
-  } catch (error) {
-    console.error(error);
-  }
-}
 
 
 
@@ -164,7 +171,7 @@ let result2 = await fetch ("http://localhost:8000/api/sends");
           <Button variant="secondary" onClick={handleClose}>
             Close
           </Button>
-          <Button variant="primary" onClick={() => {UpdateEvent(eventid); handleClose();}}>
+          <Button variant="primary" onClick={()=> {UpdateEvent(eventid); handleClose();}}>
             Save Changes
           </Button>
         </Modal.Footer>
