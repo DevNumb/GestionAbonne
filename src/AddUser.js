@@ -34,8 +34,10 @@ const handleButtonClick = id => {
   });
 
   result1 = await result1.json();
+  fetchData();
   }
   edit();
+ 
 };
 
 
@@ -52,6 +54,7 @@ const handleButtonClick1 = id => {
   });
 
   result1 = await result1.json();
+  fetchData();
   }
   edit();
 };
@@ -70,7 +73,7 @@ function handleButtonClick2 (data) {
         "Accept": 'application/json'
       }
     });
-    console.log ("delete finished");
+    fetchData(); 
   }
   
 
@@ -85,12 +88,12 @@ function handleButtonClick2 (data) {
       }
     });
     result = await result.json();
-    
+    fetchData(); 
   }
   deleteItem(); 
   uploadUser();
 
-  fetchData(); 
+ 
   let user = JSON.parse(localStorage.getItem('user-info'));
   if (user.username == data.username){
     localStorage.clear();
